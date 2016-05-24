@@ -18,4 +18,7 @@ public class Paziente {
 		this.esamiPrenotati.add(ePrenotato);
 	}
 
+	public boolean CheckPassword(String s){
+		return this.password.equals(s);
+	}
 }
