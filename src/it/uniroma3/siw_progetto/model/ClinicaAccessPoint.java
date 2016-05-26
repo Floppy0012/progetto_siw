@@ -9,7 +9,7 @@ public class ClinicaAccessPoint {
 	private Map <String,TipoEsame> tipologieEsami; //CAMBIARE LA CHIAVE DA STRING A INT
 	private Administrator aministratoreCorr;
 
-	public void EffettuaPrenotazione (String CodiceFiscale, String CodiceTipologia ){ //DA CAMBIARE IL TIPO DI CODICETIPOLOGIA IN INT!!
+	public void CreaPrenotazione (String CodiceFiscale, String CodiceTipologia ){ //DA CAMBIARE IL TIPO DI CODICETIPOLOGIA IN INT!!
 		this.pazienteCorr = this.clinica.getPaziente(CodiceFiscale);
 		TipoEsame tEsame = this.tipologieEsami.get(CodiceTipologia);
 		Date dataCorr = new Date();
