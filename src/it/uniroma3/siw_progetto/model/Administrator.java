@@ -8,9 +8,9 @@ public class Administrator {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@Column(nullable=false)
+	@Column//(nullable=false)
 	private String nome;
-	@Column(unique=true)
+	@Column //(unique=true)
 	private String codiceid;
 	//vedere come rendere pesistente
 	private String password;

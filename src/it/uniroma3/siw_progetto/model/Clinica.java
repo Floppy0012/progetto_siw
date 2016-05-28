@@ -4,15 +4,16 @@ import java.util.*;
 
 public class Clinica {
 	private static final String nome = "CIRCE - CLINICA" ;
-	private Map<String,Paziente> pazienti;
-	private Map<String,Administrator>amministrators;
+
+	private PazienteDao pazientidao;
+	private AmministratoreDao amministratoridao;
 
 	public Paziente getPaziente (String CodiceFiscale){
-		return this.pazienti.get(CodiceFiscale);
+		return this.pazientidao.find(CodiceFiscale);
 	}
 
 	public Administrator getAmministratore(String codiceid) {
-		return this.amministrators.get(codiceid);
+		return this.amministratoridao.find(codiceid);
 
 	}
 }

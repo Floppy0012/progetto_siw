@@ -2,16 +2,30 @@ package it.uniroma3.siw_progetto.model;
 
 import java.util.*;
 
-public class EsamePrenotato {
-private Paziente paziente;
-private TipoEsame tEsame;
-private Date dataPrenotazione;
+import javax.persistence.*;
 
-	public EsamePrenotato(Paziente p, TipoEsame tE, Date dataP){
-		this.paziente = p;
-		this.tEsame = tE;
-		this.dataPrenotazione = dataP;
-		this.paziente.AggiungiEsamePrenotato(this);
+@Entity
+public class EsamePrenotato {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long id;
+	@ManyToOne
+	private Paziente paziente;
+	@ManyToOne
+	private TipoEsame tipoEsame;
+	@Temporal (TemporalType.TIMESTAMP)
+	private Date dataPrenotazione;
+
+	public EsamePrenotato(){
+		this.dataPrenotazione=new Date();
 	}
 	
+	public EsamePrenotato(Paziente p, TipoEsame tE){
+		this.paziente = p;
+		this.tipoEsame = tE;
+		this.dataPrenotazione = new Date();
+
+		this.paziente.AggiungiEsamePrenotato(this);
+	}
+
 }
