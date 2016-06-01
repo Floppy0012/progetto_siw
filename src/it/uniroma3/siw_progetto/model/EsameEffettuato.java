@@ -1,22 +1,51 @@
 package it.uniroma3.siw_progetto.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
+@PrimaryKeyJoinColumn(name="id")
 public class EsameEffettuato extends EsamePrenotato{
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+
 	@ManyToOne
 	private Medico medico;
-	//private Risultato risultato;
+	
+	@ManyToMany
+	private List<Risultato> risultati;
 
 	public EsameEffettuato(){
-		super();
+		//super();
+		this.risultati = new ArrayList<>();
 	}
 
-	public EsameEffettuato(Paziente p, TipoEsame tE,Medico medico){
-		super(p,tE);
-		this.medico=medico;
+	public EsameEffettuato(Medico medico){
+		this.medico = medico;
 	}
+
+	public void creaRisultato(/*elemetni*/) {
+		Risultato risultato= new Risultato(/*elementi*/);
+		this.AddRisulato(risultato);
+	}
+
+	public void AddRisulato (Risultato ris){
+		this.risultati.add(ris);
+	}
+	
+	public void setRisultato(List<Risultato> res2) {
+		this.risultati = res2;
+	}
+	public void setMedico(Medico medico) {
+		this.medico = medico;
+	}
+
+	public List<Risultato> getRisultato() {
+		return this.risultati;
+	}
+	public Medico getMedico() {
+		return medico;
+	}
+
+
 }

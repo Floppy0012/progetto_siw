@@ -5,19 +5,23 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class EsamePrenotato {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	
 	@ManyToOne
 	private Paziente paziente;
+	
 	@ManyToOne
 	private TipoEsame tipoEsame;
+	
 	@Temporal (TemporalType.TIMESTAMP)
 	private Date dataPrenotazione;
 
 	public EsamePrenotato(){
-		this.dataPrenotazione=new Date();
+		this.dataPrenotazione = new Date();
 	}
 	
 	public EsamePrenotato(Paziente p, TipoEsame tE){
@@ -27,5 +31,39 @@ public class EsamePrenotato {
 
 		this.paziente.AggiungiEsamePrenotato(this);
 	}
+	
+	public void setTipoEsame(TipoEsame tipoEsame) {
+		this.tipoEsame = tipoEsame;
+	}
+	
+	public void setPaziente(Paziente paziente) {
+		this.paziente = paziente;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	public void setDataPrenotazione(Date dataPrenotazione) {
+		this.dataPrenotazione = dataPrenotazione;
+	}
+	
+	public TipoEsame getTipoEsame() {
+		return tipoEsame;
+	}
+	
+	public Paziente getPaziente() {
+		return paziente;
+	}
+	
+	public long getId() {
+		return id; 
+	}
+	
+	public Date getDataPrenotazione() {
+		return dataPrenotazione;
+	}
+	
+
 
 }

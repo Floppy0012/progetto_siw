@@ -10,19 +10,22 @@ public class Paziente {
 
 	@Id
 	private String codiceFiscale;
-	@Column//(nullable=false)
+	
+	//@Column(nullable=false)
 	private String nome; 
-	@Column//(nullable=false)
+	
+	//@Column(nullable=false)
 	private String cognome;
+	
 	@Temporal (TemporalType.DATE)
 	private Date dataNascita;
-	//da vedere come rendere criptato nella base di dati
-	private String password;
+	
+	private String password; //Come criptare?
+	
 	@OneToMany(mappedBy="paziente")
-	private List<EsamePrenotato> esamiPrenotati;//POLIMORFISMO???
-	@OneToMany(mappedBy="paziente")
-	private List<EsameEffettuato> esamiEffettuati;//POLIMORFISMO???
+	private List<EsamePrenotato> esamiPrenotati;
 
+	
 
 	public Paziente (String cf,String nome,String cognome,Date datanascita,String psw){
 		this.codiceFiscale=cf;
@@ -30,11 +33,11 @@ public class Paziente {
 		this.dataNascita=datanascita;
 		this.nome=nome;
 		this.password=psw;
+		this.esamiPrenotati = new ArrayList<>();
 	}
 
 	public Paziente(){
-		this.esamiEffettuati= new ArrayList<>();
-		this.esamiPrenotati=new ArrayList<>();
+		this.esamiPrenotati = new ArrayList<>();
 	}
 	public void AggiungiEsamePrenotato (EsamePrenotato ePrenotato){
 		this.esamiPrenotati.add(ePrenotato);
@@ -42,5 +45,60 @@ public class Paziente {
 
 	public boolean CheckPassword(String s){
 		return this.password.equals(s);
+	}
+	
+	public void AddEsamePrenotato (EsamePrenotato EsPr){
+		this.esamiPrenotati.add(EsPr);
+	}
+	
+	/*
+	 * Metodi Set e Get
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public void setEsamiPrenotati(List<EsamePrenotato> esamiPrenotati) {
+		this.esamiPrenotati = esamiPrenotati;
+	}
+	
+	public void setDataNascita(Date dataNascita) {
+		this.dataNascita = dataNascita;
+	}
+	
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+	
+	public void setCodiceFiscale(String codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public List<EsamePrenotato> getEsamiPrenotati() {
+		return esamiPrenotati;
+	}
+	
+	public Date getDataNascita() {
+		return dataNascita;
+	}
+	
+	public String getCognome() {
+		return cognome;
+	}
+	
+	public String getCodiceFiscale() {
+		return codiceFiscale;
 	}
 }
