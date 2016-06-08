@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(name="findAllTipiEsami", query="SELECT TE FROM TipoEsame TE")
 public class TipoEsame {
 
 	@Id

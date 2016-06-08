@@ -13,6 +13,7 @@ public class Administrator {
 
 	@Id
 	private String id;
+	
 	@Column(nullable=false)
 	private String nome;
 	private String password;

@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 
 @Entity
+@NamedQuery(name="findAllPazienti", query="SELECT p FROM Paziente p")
 public class Paziente {
 
 	@Id
@@ -22,7 +23,7 @@ public class Paziente {
 	
 	private String password; //Come criptare?
 	
-	@OneToMany(mappedBy="paziente")
+	@OneToMany(mappedBy= "paziente")
 	private List<EsamePrenotato> esamiPrenotati;
 
 	

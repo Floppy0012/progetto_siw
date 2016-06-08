@@ -1,27 +1,41 @@
 package it.uniroma3.siw_progetto.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
 
-@Entity
-@PrimaryKeyJoinColumn(name="id")
-public class EsameEffettuato extends EsamePrenotato{
 
+@Entity
+@NamedQuery(name="findAllEsamiEffettuati", query="SELECT EF FROM EsameEffetuato EF")
+public class EsameEffettuato {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long Id;
+	
+	@OneToOne
+	private EsamePrenotato EsamePrenotato;
+	
 	@ManyToOne
 	private Medico medico;
 	
-	@ManyToMany
+	@Temporal (TemporalType.DATE)
+	private Date DataEffettuazione;
+	
+	@OneToMany(cascade = {CascadeType.REMOVE})
+	@JoinColumn(name = "Risultato_Id")
 	private List<Risultato> risultati;
-
+	
+	
 	public EsameEffettuato(){
-		//super();
 		this.risultati = new ArrayList<>();
 	}
 
-	public EsameEffettuato(Medico medico){
+	public EsameEffettuato(Medico medico, Date data){
 		this.medico = medico;
+		this.DataEffettuazione = data; //nel mio controller HELPER dovrò implemenatare DateValidator validator = new DateValidator() come SIW-JDC-MVC-Es
 	}
 
 	public void creaRisultato(/*elemetni*/) {
@@ -46,6 +60,12 @@ public class EsameEffettuato extends EsamePrenotato{
 	public Medico getMedico() {
 		return medico;
 	}
+
+	public void setEsamePrenotato(EsamePrenotato esPren) {
+		this.EsamePrenotato = esPren;
+	}
+	
+	
 
 
 }

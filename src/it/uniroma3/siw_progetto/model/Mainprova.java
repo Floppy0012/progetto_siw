@@ -42,6 +42,8 @@ public class Mainprova {
 		med.AddEsameEffettuato(EsEff);
 		EsEff.setMedico(med);
 		EsEff.AddRisulato(r);
+		EsEff.setEsamePrenotato(EsPren);
+
 		
 
 		
@@ -57,6 +59,7 @@ public class Mainprova {
 		em.persist(EsPren);
 		em.persist(med);
 		em.persist(EsEff);
+//		em.remove(EsPren);
 
 
 		tx.commit();
