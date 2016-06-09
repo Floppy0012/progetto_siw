@@ -37,6 +37,7 @@ public class InserimentoTipoEsame extends HttpServlet {
 		String NomeTipo = request.getParameter("NomeTipo");
 		String DescrizioneTipo = request.getParameter("DescrizioneTipo");
 		String Costo = request.getParameter("CostoTipo");
+		//ciao
 		
 		//PRENDO IL COSTO, MA È UNA STRINGA LO CONVERTO IN FLOAT 
 		float CostoTipo = Float.parseFloat(Costo);
