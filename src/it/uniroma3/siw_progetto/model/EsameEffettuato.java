@@ -24,7 +24,7 @@ public class EsameEffettuato {
 	@Temporal (TemporalType.DATE)
 	private Date DataEffettuazione;
 	
-	@OneToMany(cascade = {CascadeType.REMOVE})
+	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "esameEffettuato")
 	@JoinColumn(name = "Risultato_Id")
 	private List<Risultato> risultati;
 	
