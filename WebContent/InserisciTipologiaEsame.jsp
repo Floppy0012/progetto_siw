@@ -11,8 +11,9 @@
 		<h2>Inserisci la tipologia Esame:</h2>
 		<form action="ControllerInserimentoTipoEsame" method="get">
 			Nome: <input type="text" name="NomeTipo"><br>
-			Descrizione : <input type="text" name="DescrizioneTipo"> <input
-				type="submit" name="sumbit" value="invia" />
+			Descrizione : <input type="text" name="DescrizioneTipo"><br>
+			Costo :	<input type = "float" name = "CostoTipo"><br>
+			<input type="submit" name="sumbit" value="invia" />
 		</form>
 	
 	</<%-- DANI, QUESTA È LA FORM, UNA VOLTA FATTO INVIO, 
