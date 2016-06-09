@@ -23,7 +23,8 @@ public class EsamePrenotatoDao extends Dao<EsamePrenotato> {
 		em.close();
 		return esamePrenotato;
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<EsamePrenotato> findAll() {
 		EntityManager em = this.emf.createEntityManager();

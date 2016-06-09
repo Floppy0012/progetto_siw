@@ -12,7 +12,8 @@ public class PazienteDao extends Dao<Paziente> {
 	public PazienteDao(EntityManagerFactory emf) {
 		super(emf);
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Paziente> findAll() {
 		EntityManager em = this.emf.createEntityManager();
@@ -21,6 +22,7 @@ public class PazienteDao extends Dao<Paziente> {
 		return result;
 	}
 
+	
 	@Override
 	public Paziente findById(Object id) {
 		String Id = (String)id;

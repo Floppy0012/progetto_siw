@@ -25,6 +25,7 @@ public class EsameEffettuatoDao extends Dao<EsameEffettuato>{
 		return esameEffettuato;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<EsameEffettuato> findAll() {
 		EntityManager em = this.emf.createEntityManager();

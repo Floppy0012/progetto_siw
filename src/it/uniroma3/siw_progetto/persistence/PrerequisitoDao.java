@@ -4,31 +4,31 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import it.uniroma3.siw_progetto.model.Medico;
 
-public class MedicoDao extends Dao<Medico> {
+import it.uniroma3.siw_progetto.model.Prerequisito;
 
-	public MedicoDao(EntityManagerFactory emf) {
+public class PrerequisitoDao extends Dao<Prerequisito> {
+
+	public PrerequisitoDao(EntityManagerFactory emf) {
 		super(emf);
 	}
 
 	@Override
-	public Medico findById(Object id) {
-		long Id = (long)id;
+	public Prerequisito findById(Object id) {
+		String Id = (String)id;
 		EntityManager em = this.emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		Medico medico = em.find(Medico.class, Id);
+		Prerequisito p = em.find(Prerequisito.class, Id);
 		tx.commit();
 		em.close();
-		return medico;
+		return p;
 	}
-	
-	@SuppressWarnings("unchecked")
+
 	@Override
-	public List<Medico> findAll() {
+	public List<Prerequisito> findAll() {
 		EntityManager em = this.emf.createEntityManager();
-		List<Medico> result = em.createNamedQuery("findAllMedici").getResultList();
+		List<Prerequisito> result = em.createNamedQuery("findAllPrerequisiti").getResultList();
 		em.close();
 		return result;
 	}

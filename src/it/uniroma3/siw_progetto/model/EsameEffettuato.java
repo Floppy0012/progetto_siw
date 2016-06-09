@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 
 @Entity
-@NamedQuery(name="findAllEsamiEffettuati", query="SELECT EF FROM EsameEffetuato EF")
+@NamedQuery(name= "findAllEsamiEffettuati", query="SELECT EF FROM EsameEffettuato EF")
 public class EsameEffettuato {
 
 	@Id
@@ -24,8 +24,8 @@ public class EsameEffettuato {
 	@Temporal (TemporalType.DATE)
 	private Date DataEffettuazione;
 	
-	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "esameEffettuato")
-	@JoinColumn(name = "Risultato_Id")
+	@OneToMany(cascade = {CascadeType.REMOVE}/*, mappedBy = "esameEffettuato"*/)
+	@JoinColumn(name = "EsameEffettuato_id")
 	private List<Risultato> risultati;
 	
 	

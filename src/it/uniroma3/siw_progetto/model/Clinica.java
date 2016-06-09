@@ -8,6 +8,8 @@ import it.uniroma3.siw_progetto.persistence.EsameEffettuatoDao;
 import it.uniroma3.siw_progetto.persistence.EsamePrenotatoDao;
 import it.uniroma3.siw_progetto.persistence.MedicoDao;
 import it.uniroma3.siw_progetto.persistence.PazienteDao;
+import it.uniroma3.siw_progetto.persistence.PrerequisitoDao;
+import it.uniroma3.siw_progetto.persistence.Risultatodao;
 import it.uniroma3.siw_progetto.persistence.Tipoesamedao;
 
 //Clinica Singleton
@@ -21,6 +23,7 @@ public class Clinica {
 	private EsamePrenotatoDao esameprenotatodao;
 	private Tipoesamedao tipoesamedao;
 	private Risultatodao risultatodao;
+	private PrerequisitoDao prerequisitodao;
 
 	//metodo statico
 	public static synchronized Clinica getInstance(){
@@ -39,6 +42,7 @@ public class Clinica {
 		this.esameprenotatodao = new EsamePrenotatoDao(emf);
 		this.tipoesamedao = new Tipoesamedao(emf);
 		this.risultatodao= new Risultatodao(emf);
+		this.prerequisitodao = new PrerequisitoDao(emf);
 	}
 
 	
@@ -46,14 +50,15 @@ public class Clinica {
 	public Paziente getPaziente (String CodiceFiscale){
 		return this.pazientidao.findById(CodiceFiscale);
 	}	
-	public void savePazziente(Paziente pazziente) {
+	
+	public void savePaziente(Paziente pazziente) {
 		this.pazientidao.save(pazziente);		
 	}
 	
-
 	public Administrator getAmministratore(String codiceid) {
 		return this.amministratoridao.findById(codiceid);
 	}
+	
 	public void saveAmministratore(Administrator amminstratore) {
 		this.amministratoridao.save(amminstratore);		
 	}
@@ -62,10 +67,10 @@ public class Clinica {
 	public TipoEsame getTipoEsame(Long id) {
 		return this.tipoesamedao.findById(id);
 	}
+	
 	public void saveTipoEsame(TipoEsame tipoesame) {
 		this.tipoesamedao.save(tipoesame);		
 	}
-	
 	
 	public Medico getMedico(long id) {
 		return this.medicidao.findById(id);
@@ -74,25 +79,36 @@ public class Clinica {
 		this.medicidao.save(medico);		
 	}
 	
-	
 	public EsameEffettuato getEsameEffettuato(long id) {
 		return this.esameeffettuatodao.findById(id);
 	}
+	
 	public void saveEsameEffettuato(EsameEffettuato esameeffettuato) {
 		this.esameeffettuatodao.save(esameeffettuato);		
 	}
-	
-	
+		
 	public EsamePrenotato getEsamePrenotato(long id) {
 		return this.esameprenotatodao.findById(id);
 	}
-	public void saveEsamePrenoteto(EsamePrenotato esamePronotato) {
+	
+	public void saveEsamePrenotato(EsamePrenotato esamePronotato) {
 		this.esameprenotatodao.save(esamePronotato);		
 	}
-
+	
+	public Risultato getRisultato (long id){
+		return this.risultatodao.findById(id);
+	}
+	
 	public void saveRisultato(Risultato risultato) {
 		this.risultatodao.save(risultato);
-		
+	}
+	
+	public Prerequisito getPrerequisito(String nome){
+		return this.prerequisitodao.findById(nome);
+	}
+	
+	public void savePrerequisito (Prerequisito prerequisito){
+		this.prerequisitodao.save(prerequisito);
 	}
 	
 	

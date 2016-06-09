@@ -26,6 +26,7 @@ public class AmministratoreDao extends Dao<Administrator> {
 		return a;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Administrator> findAll() {
 		EntityManager em = this.emf.createEntityManager();

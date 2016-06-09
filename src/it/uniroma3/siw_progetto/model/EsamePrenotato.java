@@ -18,7 +18,7 @@ public class EsamePrenotato {
 	@ManyToOne
 	private TipoEsame tipoEsame;
 
-	@OneToOne//(fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "EsamePrenotato")//(fetch = FetchType.LAZY)
 	private EsameEffettuato EsameEffettuato;
 
 	@Temporal (TemporalType.TIMESTAMP)
@@ -66,6 +66,10 @@ public class EsamePrenotato {
 
 	public Date getDataPrenotazione() {
 		return dataPrenotazione;
+	}
+
+	public void setEsameEffettuato(EsameEffettuato esEff) {
+		this.EsameEffettuato = esEff;
 	}
 
 

@@ -55,6 +55,10 @@ public class Risultato {
 		this.descrizione = descrizione;
 	}
 	
+	public void setEsameEffettuato (EsameEffettuato EF){
+		this.esameEffettuato = EF;
+	}
+	
 	@Override
 	public int hashCode() {
 		return this.nome.hashCode();
@@ -68,7 +72,7 @@ public class Risultato {
 
 	@Override
 	public String toString() {
-		return "Prerequisito [nome=" + nome + ", descrizione=" + descrizione + "]";
+		return "Risultato [nome=" + nome + ", descrizione=" + descrizione + "]";
 	}
 
 

@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Circe-Clinica</title>
+<title>Circe:TipoEsami</title>
 <!-- Fogli di stile -->
 <link href="css/bootstrap.css" rel="stylesheet" media="screen">
 <link href="css/stili-custom.css" rel="stylesheet" media="screen">
@@ -20,8 +20,7 @@
   <![endif]-->
 </head>
 <body>
-
-	<header>
+<header>
 	<div>
 		<h1 align="center">
 			<a href="base.html">CIRCE<small> Clinica privata</small></a>
@@ -29,7 +28,7 @@
 
 	</div>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -39,18 +38,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#">Brand <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li class="active"><a href="#">Chi Siamo <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Dove Siamo  <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> </a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Strumenti <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="InserisciTipologiaEsame.jsp">Inserisci Tipo Esame</a></li>
+            <li><a href="pazienteidentificato.html">Esami</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
@@ -61,11 +60,11 @@
         </li>
         <li><a href="#">Link</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">I Tuoi Esami:   <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#">Prenotati</a></li>
+            <li><a href="#">Effettuati</a></li>
+            <li><a href="#">Risultati</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
           </ul>
@@ -86,19 +85,32 @@
 </nav>
 </header>
 
-		<div>
-			<div class="col-sm-87 col-lg-7">
-				
-			</div>
-		</div>
-		<div>
-			<div class="col-sm-2 col-lg-2">
-				
+	<div class="row">
+		<div class="col-sm-3 col-lg-3">
+			<div class="panel">
+				<ul class="nav nav-pills nav-stacked">
+					<li><a href="">chi siamo</a></li>
+					<li><a href="">i nostri esami</a></li>
+					<li><a href="">da vedere con flo</a></li>
+				</ul>
 			</div>
 		</div>
 
 		<!-- jQuery e plugin JavaScript  -->
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+	
+		<div>
+			<div class="col-sm-7 col-lg-7">
+				
+			</div>
+		</div>
+	
+	
+		<div>
+			<div class="col-sm-2 col-lg-2">
+				
+			</div>
+		</div>
 </body>
 </html>

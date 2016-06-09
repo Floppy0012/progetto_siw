@@ -14,7 +14,7 @@ public class ClinicaAccessPoint {
 		this.pazienteCorr = Clinica.getInstance().getPaziente(CodiceFiscale);
 		TipoEsame tEsame = Clinica.getInstance().getTipoEsame(CodiceTipologia);
 		EsamePrenotato esamePronotato =  new EsamePrenotato (this.pazienteCorr,tEsame);
-		Clinica.getInstance().saveEsamePrenoteto(esamePronotato);
+		Clinica.getInstance().saveEsamePrenotato(esamePronotato);
 	}
 
 	public void CreaNuovaTipologiaEsame(String nome, String descrizione, float costo, List<Prerequisito> prerequisiti){

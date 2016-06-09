@@ -24,8 +24,8 @@ public class Tipoesamedao extends Dao<TipoEsame>{
 		return tipoesame;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	
 	public List<TipoEsame> findAll() {
 		EntityManager em = this.emf.createEntityManager();		
 		List<TipoEsame> result = em.createNamedQuery("findAllTipiEsami").getResultList();

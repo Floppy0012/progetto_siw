@@ -3,13 +3,11 @@ package it.uniroma3.siw_progetto.model;
 
 import java.util.Date;
 
-import javax.persistence.*;
 
 public class Mainprova {
 
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
-		EntityManager em = emf.createEntityManager();
+
 		
 		Administrator a = new Administrator();	
 		a.setId("id");
@@ -30,11 +28,12 @@ public class Mainprova {
 		
 		@SuppressWarnings("deprecation")
 		Date data = new Date(94, 8, 13);
-		Paziente Paz = new Paziente("CCTF", "FlorianO", "CEcati",data, "CICCIO");
+		Paziente Paz = new Paziente("CCTF", "FlorianO", "Cecati", data, "CICCIO");
 		
 		Paz.AddEsamePrenotato(EsPren);
 		
 		EsPren.setPaziente(Paz);
+		EsPren.setTipoEsame(Tesame);
 		
 		Medico med = new Medico();
 		
@@ -43,28 +42,19 @@ public class Mainprova {
 		EsEff.setMedico(med);
 		EsEff.AddRisulato(r);
 		EsEff.setEsamePrenotato(EsPren);
-
+		EsPren.setEsameEffettuato(EsEff);
 		
-
-		
-
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();	
+		r.setEsameEffettuato(EsEff);
+		Clinica.getInstance().saveAmministratore(a);
+		Clinica.getInstance().savePaziente(Paz);
+		Clinica.getInstance().saveMedico(med);
+//		Clinica.getInstance().savePrerequisito(p);
+//		Clinica.getInstance().saveTipoEsame(Tesame);
+//		Clinica.getInstance().saveEsamePrenotato(EsPren);
+//		Clinica.getInstance().saveEsameEffettuato(EsEff);
+//		Clinica.getInstance().saveRisultato(r);
 	
-		em.persist(a);	
-		em.persist(p);
-		em.persist(r);
-		em.persist(Tesame);
-		em.persist(Paz);
-		em.persist(EsPren);
-		em.persist(med);
-		em.persist(EsEff);
-//		em.remove(EsPren);
-
-
-		tx.commit();
-		em.close();
-		emf.close();
+		
 
 	}
 
