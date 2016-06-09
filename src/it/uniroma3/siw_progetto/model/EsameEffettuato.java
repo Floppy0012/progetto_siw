@@ -41,6 +41,7 @@ public class EsameEffettuato {
 	public void creaRisultato(/*elemetni*/) {
 		Risultato risultato= new Risultato(/*elementi*/);
 		this.AddRisulato(risultato);
+		Clinica.getInstance().saveRisultato(risultato);
 	}
 
 	public void AddRisulato (Risultato ris){
@@ -61,6 +62,10 @@ public class EsameEffettuato {
 		return medico;
 	}
 
+	public EsamePrenotato getEsamePrenotato(){
+		return this.EsamePrenotato;
+	}
+	
 	public void setEsamePrenotato(EsamePrenotato esPren) {
 		this.EsamePrenotato = esPren;
 	}
