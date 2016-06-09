@@ -2,15 +2,8 @@ package it.uniroma3.siw_progetto.model;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import it.uniroma3.siw_progetto.persistence.*;
 
-import it.uniroma3.siw_progetto.persistence.AmministratoreDao;
-import it.uniroma3.siw_progetto.persistence.EsameEffettuatoDao;
-import it.uniroma3.siw_progetto.persistence.EsamePrenotatoDao;
-import it.uniroma3.siw_progetto.persistence.MedicoDao;
-import it.uniroma3.siw_progetto.persistence.PazienteDao;
-import it.uniroma3.siw_progetto.persistence.PrerequisitoDao;
-import it.uniroma3.siw_progetto.persistence.Risultatodao;
-import it.uniroma3.siw_progetto.persistence.Tipoesamedao;
 
 //Clinica Singleton
 public class Clinica {
