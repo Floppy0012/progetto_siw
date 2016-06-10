@@ -11,8 +11,6 @@ public class ClinicaAccessPoint {
 	
 	
 	 public ClinicaAccessPoint() {
-		
-	
 		this.clinica= new Clinica();
 	}
 	

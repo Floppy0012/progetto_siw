@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import it.uniroma3.siw_progetto.model.Clinica;
 import it.uniroma3.siw_progetto.model.ClinicaAccessPoint;
 import it.uniroma3.siw_progetto.model.TipoEsame;
+import it.uniroma3.siw_progetto.persistence.Tipoesamedao;
 
 /**
  * Servlet implementation class InserimentoTipoEsame
@@ -43,9 +44,10 @@ public class InserimentoTipoEsame extends HttpServlet {
 		float CostoTipo = Float.parseFloat(Costo);
 		
 		//Creo un TipoEsame e setto i valori presi dalla request
-		ClinicaAccessPoint accessPoint= new ClinicaAccessPoint();
+		ClinicaAccessPoint accessPoint = new ClinicaAccessPoint();
 		TipoEsame TEs = accessPoint.CreaNuovaTipologiaEsame(NomeTipo, DescrizioneTipo, CostoTipo, null/*per ora nullo*/);
-
+	
+		
 		//metto i valori nella sessione
 		HttpSession session = request.getSession();
 		session.setAttribute("TEs", TEs);
