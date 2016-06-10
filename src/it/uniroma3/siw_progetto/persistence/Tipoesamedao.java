@@ -21,6 +21,7 @@ public class Tipoesamedao extends Dao<TipoEsame>{
 		TipoEsame tipoesame = em.find(TipoEsame.class, Id);
 		tx.commit();
 		em.close();
+		emf.close();
 		return tipoesame;
 	}
 
@@ -30,6 +31,7 @@ public class Tipoesamedao extends Dao<TipoEsame>{
 		EntityManager em = this.emf.createEntityManager();		
 		List<TipoEsame> result = em.createNamedQuery("findAllTipiEsami").getResultList();
 		em.close();
+		emf.close();
 		return result;
 	}
 

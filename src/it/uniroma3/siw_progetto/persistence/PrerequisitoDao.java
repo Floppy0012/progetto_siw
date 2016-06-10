@@ -22,14 +22,17 @@ public class PrerequisitoDao extends Dao<Prerequisito> {
 		Prerequisito p = em.find(Prerequisito.class, Id);
 		tx.commit();
 		em.close();
+		emf.close();
 		return p;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Prerequisito> findAll() {
 		EntityManager em = this.emf.createEntityManager();
 		List<Prerequisito> result = em.createNamedQuery("findAllPrerequisiti").getResultList();
 		em.close();
+		emf.close();
 		return result;
 	}
 

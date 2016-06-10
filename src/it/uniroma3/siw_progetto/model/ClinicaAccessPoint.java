@@ -2,7 +2,6 @@ package it.uniroma3.siw_progetto.model;
 
 import java.util.*;
 
-
 public class ClinicaAccessPoint {
 
 	private Paziente pazienteCorr;
@@ -36,5 +35,13 @@ public class ClinicaAccessPoint {
 	public void InserimentoRisultatiEsame(long id/*,elementi per il risultato da creare*/) {
 		EsameEffettuato ef = this.clinica.getEsameEffettuato(id);
 		ef.creaRisultato(this.clinica/*, elementi del risultato*/);
+	}
+
+	public List<Prerequisito> getTuttiPrerequisiti() {
+		return clinica.getTuttiprerequisiti();
+	}
+
+	public Prerequisito getprerequisito(String nome) {
+		return clinica.getPrerequisito(nome);
 	}
 }

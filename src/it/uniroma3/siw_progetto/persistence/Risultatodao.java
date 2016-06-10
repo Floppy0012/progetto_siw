@@ -22,6 +22,7 @@ public class Risultatodao extends Dao<Risultato> {
 		Risultato risultato = em.find(Risultato.class, Id);
 		tx.commit();
 		em.close();
+		emf.close();
 		return risultato;
 	}
 
@@ -31,6 +32,7 @@ public class Risultatodao extends Dao<Risultato> {
 		EntityManager em = this.emf.createEntityManager();
 		List<Risultato> result = em.createNamedQuery("findAllRisultati").getResultList();
 		em.close();
+		emf.close();
 		return result;
 	}
 

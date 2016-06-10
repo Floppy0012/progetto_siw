@@ -1,5 +1,7 @@
 package it.uniroma3.siw_progetto.model;
 
+import java.util.List;
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import it.uniroma3.siw_progetto.persistence.*;
@@ -102,6 +104,12 @@ public class Clinica {
 	
 	public void savePrerequisito (Prerequisito prerequisito){
 		this.prerequisitodao.save(prerequisito);
+	}
+
+
+
+	public List<Prerequisito> getTuttiprerequisiti() {
+		return this.prerequisitodao.findAll();
 	}
 	
 	
