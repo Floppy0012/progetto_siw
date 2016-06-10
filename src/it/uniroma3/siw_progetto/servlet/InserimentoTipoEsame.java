@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.uniroma3.siw_progetto.model.Clinica;
+import it.uniroma3.siw_progetto.model.ClinicaAccessPoint;
 import it.uniroma3.siw_progetto.model.TipoEsame;
 
 /**
@@ -37,20 +38,14 @@ public class InserimentoTipoEsame extends HttpServlet {
 		String NomeTipo = request.getParameter("NomeTipo");
 		String DescrizioneTipo = request.getParameter("DescrizioneTipo");
 		String Costo = request.getParameter("CostoTipo");
-		//ciao
 		
-		//PRENDO IL COSTO, MA È UNA STRINGA LO CONVERTO IN FLOAT 
+		//PRENDO IL COSTO, MA È UNA STRINGA LO CONVERTO IN FLOAT || QUESTO LACORO NON LO DOVREBBE FARE UN CONTROLLER A PARTE E GESTIRE ANCHE IL NOME E GLI ALTRI ATTRIBUTI
 		float CostoTipo = Float.parseFloat(Costo);
 		
 		//Creo un TipoEsame e setto i valori presi dalla request
-		TipoEsame TEs = new TipoEsame();
-		TEs.setNome(NomeTipo);
-		TEs.setDescrizione(DescrizioneTipo);
-		TEs.setCosto(CostoTipo);
-		
-		//devo fare qua il passaggio al DB??? 
-		Clinica.getInstance().saveTipoEsame(TEs);
-		
+		ClinicaAccessPoint accessPoint= new ClinicaAccessPoint();
+		TipoEsame TEs = accessPoint.CreaNuovaTipologiaEsame(NomeTipo, DescrizioneTipo, CostoTipo, null/*per ora nullo*/);
+
 		//metto i valori nella sessione
 		HttpSession session = request.getSession();
 		session.setAttribute("TEs", TEs);

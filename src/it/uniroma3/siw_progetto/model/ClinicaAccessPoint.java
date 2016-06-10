@@ -3,33 +3,40 @@ package it.uniroma3.siw_progetto.model;
 import java.util.*;
 
 
-//DA SISTEMARE
 public class ClinicaAccessPoint {
 
 	private Paziente pazienteCorr;
 	private Administrator aministratoreCorr;
-
+	private Clinica clinica;
+	
+	
+	 public ClinicaAccessPoint() {
+		
+	
+		this.clinica= new Clinica();
+	}
 	
 	public void CreaPrenotazione (String CodiceFiscale, long CodiceTipologia ){
-		this.pazienteCorr = Clinica.getInstance().getPaziente(CodiceFiscale);
-		TipoEsame tEsame = Clinica.getInstance().getTipoEsame(CodiceTipologia);
+		this.pazienteCorr = this.clinica.getPaziente(CodiceFiscale);
+		TipoEsame tEsame = this.clinica.getTipoEsame(CodiceTipologia);
 		EsamePrenotato esamePronotato =  new EsamePrenotato (this.pazienteCorr,tEsame);
-		Clinica.getInstance().saveEsamePrenotato(esamePronotato);
+		this.clinica.saveEsamePrenotato(esamePronotato);
 	}
 
-	public void CreaNuovaTipologiaEsame(String nome, String descrizione, float costo, List<Prerequisito> prerequisiti){
+	public TipoEsame CreaNuovaTipologiaEsame(String nome, String descrizione, float costo, List<Prerequisito> prerequisiti){
 		TipoEsame tipoEsame = new TipoEsame(nome, descrizione,costo, prerequisiti);
-		Clinica.getInstance().saveTipoEsame(tipoEsame);
+		this.clinica.saveTipoEsame(tipoEsame);
+		return tipoEsame;
 	}
 
 	public List<EsameEffettuato> VisualizzaEsamiMedico(long id){
-		Medico m = Clinica.getInstance().getMedico(id);
+		Medico m = this.clinica.getMedico(id);
 		return m.mostraesami();
 
 	}
 
 	public void InserimentoRisultatiEsame(long id/*,elementi per il risultato da creare*/) {
-		EsameEffettuato ef = Clinica.getInstance().getEsameEffettuato(id);
-		ef.creaRisultato(/*elementi del risultato*/);
+		EsameEffettuato ef = this.clinica.getEsameEffettuato(id);
+		ef.creaRisultato(this.clinica/*, elementi del risultato*/);
 	}
 }

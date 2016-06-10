@@ -8,7 +8,7 @@ import it.uniroma3.siw_progetto.persistence.*;
 //Clinica Singleton
 public class Clinica {
 
-	private static Clinica Instance;
+//	private static Clinica Instance;
 	private PazienteDao pazientidao;
 	private AmministratoreDao amministratoridao;
 	private MedicoDao medicidao;
@@ -18,15 +18,15 @@ public class Clinica {
 	private Risultatodao risultatodao;
 	private PrerequisitoDao prerequisitodao;
 
-	//metodo statico
-	public static synchronized Clinica getInstance(){
-		if(Instance == null){
-			Instance = new Clinica();
-		}
-		return Instance;
-	}
+//	//metodo statico
+//	public static synchronized Clinica getInstance(){
+//		if(Instance == null){
+//			Instance = new Clinica();
+//		}
+//		return Instance;
+//	}
 	
-	private Clinica(){
+	public Clinica(){
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
 		this.pazientidao = new PazienteDao(emf);
 		this.amministratoridao = new AmministratoreDao(emf);
