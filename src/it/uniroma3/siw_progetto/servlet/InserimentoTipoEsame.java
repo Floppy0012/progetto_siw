@@ -45,7 +45,7 @@ public class InserimentoTipoEsame extends HttpServlet {
 		
 		//Creo un TipoEsame e setto i valori presi dalla request
 		ClinicaAccessPoint accessPoint = new ClinicaAccessPoint();
-		TipoEsame TEs = accessPoint.CreaNuovaTipologiaEsame(NomeTipo, DescrizioneTipo, CostoTipo, null/*per ora nullo*/);
+		TipoEsame TEs = accessPoint.creaTipoesame(NomeTipo, DescrizioneTipo, CostoTipo, null/*per ora nullo*/);
 	
 		
 		//metto i valori nella sessione

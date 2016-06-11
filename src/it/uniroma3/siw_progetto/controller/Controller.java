@@ -11,20 +11,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import it.uniroma3.siw_progetto.action.Action;
 
-@WebServlet("/Controller/*")
+@WebServlet("/controller/*")
 public class Controller extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String nextPage = null;
-		String actionName = CreaNomeAzione(request); //path2action
+		String actionName = CreaNomeAzione(request);
 		Action action;
 		try{
 			action = (Action)Class.forName(actionName).newInstance();
 			nextPage = action.perform(request);
 		} catch (Exception e){
-			nextPage = "/Base.jsp";
+			e.printStackTrace();
+			nextPage = "/paginaerrore.jsp";
+			
 		}
 		nextPage = response.encodeURL(nextPage);
 		ServletContext application = getServletContext();
@@ -34,6 +37,7 @@ public class Controller extends HttpServlet {
 
 	private String CreaNomeAzione(HttpServletRequest request) {
 		String path = request.getPathInfo();
+		
 		String modelCommand = path.substring(1);
 		Scanner scanner = new Scanner(modelCommand).useDelimiter("\\.");
 		String model = scanner.next();
@@ -41,8 +45,8 @@ public class Controller extends HttpServlet {
 		
 		String action = scanner.next();
 		action = action.substring(0,1).toUpperCase() + action.substring(1);
-		
-		return "it.uniroma3.siw_progetto.action." + action + model;
+		String actionname = "it.uniroma3.siw_progetto.action." + action + model;
+		return actionname;
 	}
 
 }

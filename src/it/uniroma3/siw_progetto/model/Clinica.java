@@ -27,7 +27,7 @@ public class Clinica {
 //		}
 //		return Instance;
 //	}
-	
+
 	public Clinica(){
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
 		this.pazientidao = new PazienteDao(emf);
@@ -110,6 +110,12 @@ public class Clinica {
 
 	public List<Prerequisito> getTuttiprerequisiti() {
 		return this.prerequisitodao.findAll();
+	}
+
+
+
+	public List<TipoEsame> getTuttiTipoEsame() {
+		return this.tipoesamedao.findAll();
 	}
 	
 	

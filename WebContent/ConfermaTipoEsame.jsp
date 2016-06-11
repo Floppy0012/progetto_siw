@@ -9,9 +9,9 @@
 <body>
 <div>Hai insrito corretamete i dati</div>
 
-	<div>Nome Esame: ${TEs.NomeTipo}</div>
-	<div>Descrizione: ${TEs.DescrizioneTipo}</div>
-	<div>Costo: ${TEs.CostoTipo}</div>
+	<div>Nome Esame: ${TipoEsame.NomeTipo}</div>
+	<div>Descrizione: ${TipoEsame.DescrizioneTipo}</div>
+	<div>Costo: ${TipoEsame.CostoTipo}</div>
 
 <a href="/InserisciTipologiaEsami.jsp">inserisci altri esami</a>
 </body>

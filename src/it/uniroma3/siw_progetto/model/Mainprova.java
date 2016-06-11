@@ -28,7 +28,7 @@
 //		
 //		@SuppressWarnings("deprecation")
 //		Date data = new Date(94, 8, 13);
-//		Paziente Paz = new Paziente("CCTF", "FlorianO", "Cecati", data, "CICCIO");
+//		Paziente Paz = new Paziente("CCTF", "FlorianO", "ff", data, "CICCIO");
 //		
 //		Paz.AddEsamePrenotato(EsPren);
 //		

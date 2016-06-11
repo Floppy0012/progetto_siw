@@ -14,6 +14,7 @@ public class CreaTipoesame implements Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
+		
 		HelperTipoesame helper = new HelperTipoesame();
 
 		if(helper.isValid(request)){
@@ -22,18 +23,20 @@ public class CreaTipoesame implements Action {
 			String descrizione = request.getParameter("DescrizioneTipo");
 			Float costo = Float.parseFloat(request.getParameter("CostoTipo"));
 			String[] prerequisiti = request.getParameterValues("prerequisiti[]"); 
+			
 			List<Prerequisito> prerequisitilist = new ArrayList<>();
 			for ( int i=0; i<prerequisiti.length; i++){
 				Prerequisito prerequisito= clinica.getprerequisito(prerequisiti[i]);
 				prerequisitilist.add(prerequisito);
 			}
 
-			TipoEsame TEs = clinica.CreaNuovaTipologiaEsame(name, descrizione, costo, prerequisitilist);
+			TipoEsame TEs = clinica.creaTipoesame(name, descrizione, costo, prerequisitilist);
 			request.setAttribute("TipoEsame", TEs);
 
 			return "/ConfermaTipoEsame.jsp";
 		}
-		return "/InserimentoTipoEsame.jsp";
+		
+		return "/InserisciTipologiaEsame.jsp";
 	}
 
 

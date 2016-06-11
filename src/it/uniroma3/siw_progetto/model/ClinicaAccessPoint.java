@@ -2,6 +2,7 @@ package it.uniroma3.siw_progetto.model;
 
 import java.util.*;
 
+
 public class ClinicaAccessPoint {
 
 	private Paziente pazienteCorr;
@@ -20,7 +21,7 @@ public class ClinicaAccessPoint {
 		this.clinica.saveEsamePrenotato(esamePronotato);
 	}
 
-	public TipoEsame CreaNuovaTipologiaEsame(String nome, String descrizione, float costo, List<Prerequisito> prerequisiti){
+	public TipoEsame creaTipoesame(String nome, String descrizione, float costo, List<Prerequisito> prerequisiti){
 		TipoEsame tipoEsame = new TipoEsame(nome, descrizione,costo, prerequisiti);
 		this.clinica.saveTipoEsame(tipoEsame);
 		return tipoEsame;
@@ -43,5 +44,13 @@ public class ClinicaAccessPoint {
 
 	public Prerequisito getprerequisito(String nome) {
 		return clinica.getPrerequisito(nome);
+	}
+
+	public TipoEsame getTipoEsame(Long id) {		
+		return this.clinica.getTipoEsame(id);
+	}
+
+	public List<TipoEsame> getTuttiTipoEsame() {
+		return clinica.getTuttiTipoEsame();
 	}
 }

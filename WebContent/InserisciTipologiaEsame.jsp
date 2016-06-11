@@ -11,17 +11,19 @@
 
 	<div ng-controller="userController">
 		<h2>Inserisci la tipologia Esame:</h2>
-		<button ng-click="&scope.hacliccato" value="/Controller/prerequisiti.lista">carica
+		<button ng-click="&scope.hacliccato" value="/controller/prerequisiti.lista">carica
 			prerequisiti</button>
-		<form action="<c:url value = "/Controller/tipoesame.crea"/>" method="get">
-			Nome: <input type="text" name="NomeTipo"><br>
-			Descrizione : <input type="text" name="DescrizioneTipo"><br>
-			Costo : <input type="float" name="CostoTipo"><br> 
+			
+		<form action="<c:url value = "/controller/tipoesame.crea"/>" method="get">
+			<div>Nome: <input type="text" name="NomeTipo" value ="${param.NomeTipo}">${nomeError}</div>
+			
+			<div>Costo : <input type="float" name="CostoTipo" value ="${param.CostoTipo}">${costoError}</div>
+			<div>Descrizione :<input type = "text" name="DescrizioneTipo" value= "${param.DescrizioneTipo}"> ${descrizioneError}</div>
 			<input type="submit" name="sumbit" value="invia" />
 			
-			<div ng-if="&scope.cliccato">						
+			<div>						
 				<c:forEach var="prerequisito" items="${prerequisiti}">
-					<input type="Checkbox" value="si" name="prerequisiti[]">${prerequisito.nome}
+					<input type="Checkbox" value="si" name="prerequisiti[]"> ${prerequisito.nome}
 				</c:forEach>
 				
 			</div>
@@ -29,13 +31,16 @@
 	</div>
 	
 	<script type="text/javascript">
-		angular.module("myApp", []).controller(
+		angular.module("myapp", []).controller(
 				"userController",
 				function($scope) {
 					var cliccato= false;
 					
 					$scope.hacliccato= function(){
 						cliccato=true;
+					}
+					$scope.cliccato1 = function(){
+						return cliccato;
 					}
 				});
 	</script>
