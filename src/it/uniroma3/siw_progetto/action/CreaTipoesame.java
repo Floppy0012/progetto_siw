@@ -33,7 +33,7 @@ public class CreaTipoesame implements Action {
 			TipoEsame TEs = clinica.creaTipoesame(name, descrizione, costo, prerequisitilist);
 			request.setAttribute("TipoEsame", TEs);
 
-			return "/ConfermaTipoEsame.jsp";
+			return "/tipoesame.jsp";
 		}
 		
 		return "/InserisciTipologiaEsame.jsp";

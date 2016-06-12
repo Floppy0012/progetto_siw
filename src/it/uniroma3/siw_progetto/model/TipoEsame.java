@@ -21,7 +21,7 @@ public class TipoEsame {
 
 	private float costo;
 
-	@ManyToMany
+	@ManyToMany (fetch=FetchType.EAGER)
 	private List<Prerequisito> prerequisiti; 
 
 	public TipoEsame(){

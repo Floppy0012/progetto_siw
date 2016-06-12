@@ -12,12 +12,15 @@
 	<h2>specifiche:</h2>
 	<div>Costo: ${tipoesame.costo}</div>
 	<div>Descrizione: ${tipoesame.descrizione}</div>
-	<!-- <div>
-		<ul>
-			<c:forEach var="prerequisito" items="${tipoesame.prerequisiti}">
-				<li>${prerequisito.descrizione}</li>
-			</c:forEach>
-		</ul>
-	</div> -->
+	
+	 <c:if test="${tipoesame.prerequisiti}!= null">
+		 <div>
+			<ul>		
+				<c:forEach var="prerequisito" items="${tipoesame.prerequisiti}">
+					<li>${prerequisito.descrizione}</li>
+				</c:forEach>
+			</ul>		
+		</div> 
+	</c:if>
 </body>
 </html>
