@@ -19,7 +19,7 @@ public class PazienteDao extends Dao<Paziente> {
 		EntityManager em = this.emf.createEntityManager();
 		List<Paziente> result = em.createNamedQuery("findAllPazienti").getResultList();
 		em.close();
-		emf.close();
+		//emf.close();
 		return result;
 	}
 
@@ -33,7 +33,7 @@ public class PazienteDao extends Dao<Paziente> {
 		Paziente p = em.find(Paziente.class, Id);
 		tx.commit();
 		em.close();
-		emf.close();
+	//	emf.close();
 		return p;
 
 	}

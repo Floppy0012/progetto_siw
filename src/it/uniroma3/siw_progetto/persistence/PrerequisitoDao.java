@@ -22,7 +22,7 @@ public class PrerequisitoDao extends Dao<Prerequisito> {
 		Prerequisito p = em.find(Prerequisito.class, Id);
 		tx.commit();
 		em.close();
-		emf.close();
+	//	emf.close();
 		return p;
 	}
 
@@ -32,7 +32,7 @@ public class PrerequisitoDao extends Dao<Prerequisito> {
 		EntityManager em = this.emf.createEntityManager();
 		List<Prerequisito> result = em.createNamedQuery("findAllPrerequisiti").getResultList();
 		em.close();
-		emf.close();
+	//	emf.close();
 		return result;
 	}
 

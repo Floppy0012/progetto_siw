@@ -24,11 +24,13 @@ public class ClinicaAccessPoint {
 	public TipoEsame creaTipoesame(String nome, String descrizione, float costo, List<Prerequisito> prerequisiti){
 		TipoEsame tipoEsame = new TipoEsame(nome, descrizione,costo, prerequisiti);
 		this.clinica.saveTipoEsame(tipoEsame);
+		this.clinica.closeEntityManagerFactory();
 		return tipoEsame;
 	}
 
 	public List<EsameEffettuato> VisualizzaEsamiMedico(long id){
 		Medico m = this.clinica.getMedico(id);
+		this.clinica.closeEntityManagerFactory();
 		return m.mostraesami();
 
 	}
@@ -36,10 +38,13 @@ public class ClinicaAccessPoint {
 	public void InserimentoRisultatiEsame(long id/*,elementi per il risultato da creare*/) {
 		EsameEffettuato ef = this.clinica.getEsameEffettuato(id);
 		ef.creaRisultato(this.clinica/*, elementi del risultato*/);
+		this.clinica.closeEntityManagerFactory();
 	}
 
 	public List<Prerequisito> getTuttiPrerequisiti() {
-		return clinica.getTuttiprerequisiti();
+		List<Prerequisito> Prerequisiti = clinica.getTuttiprerequisiti();
+		this.clinica.closeEntityManagerFactory();
+		return Prerequisiti;
 	}
 
 	public Prerequisito getprerequisito(String nome) {
@@ -52,5 +57,17 @@ public class ClinicaAccessPoint {
 
 	public List<TipoEsame> getTuttiTipoEsame() {
 		return clinica.getTuttiTipoEsame();
+	}
+
+	public Paziente getPaziente(String username) {
+		return clinica.getPaziente(username);
+	}
+
+	public Administrator getAmministratore(String username) {
+		return clinica.getAmministratore(username);
+	}
+
+	public void closeEntityManagerFactory() {
+		this.clinica.closeEntityManagerFactory();
 	}
 }

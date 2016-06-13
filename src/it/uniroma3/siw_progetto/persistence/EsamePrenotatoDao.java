@@ -21,7 +21,7 @@ public class EsamePrenotatoDao extends Dao<EsamePrenotato> {
 		EsamePrenotato esamePrenotato = em.find(EsamePrenotato.class, Id);
 		tx.commit();
 		em.close();
-		emf.close();
+	//	emf.close();
 		return esamePrenotato;
 	}
 	
@@ -31,7 +31,7 @@ public class EsamePrenotatoDao extends Dao<EsamePrenotato> {
 		EntityManager em = this.emf.createEntityManager();
 		List<EsamePrenotato> result = em.createNamedQuery("findAllEsamiPrenotati").getResultList();
 		em.close();
-		emf.close();
+	//	emf.close();
 		return result;
 	}
 

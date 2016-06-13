@@ -74,7 +74,7 @@
 								<li><a href="#">Effettuati</a></li>
 								<li><a href="#">Risultati</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
+								<li><a href="Login.jsp">LOGIN</a></li>
 							</ul></li>
 					</ul>
 

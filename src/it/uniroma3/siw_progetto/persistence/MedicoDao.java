@@ -21,7 +21,7 @@ public class MedicoDao extends Dao<Medico> {
 		Medico medico = em.find(Medico.class, Id);
 		tx.commit();
 		em.close();
-		emf.close();
+		//emf.close();
 		return medico;
 	}
 	
@@ -31,7 +31,7 @@ public class MedicoDao extends Dao<Medico> {
 		EntityManager em = this.emf.createEntityManager();
 		List<Medico> result = em.createNamedQuery("findAllMedici").getResultList();
 		em.close();
-		emf.close();
+		//emf.close();
 		return result;
 	}
 

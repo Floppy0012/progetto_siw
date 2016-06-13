@@ -23,7 +23,7 @@ public class AmministratoreDao extends Dao<Administrator> {
 		Administrator a = em.find(Administrator.class, Id);
 		tx.commit();
 		em.close();
-		emf.close();
+		//emf.close();
 		return a;
 	}
 
@@ -33,7 +33,7 @@ public class AmministratoreDao extends Dao<Administrator> {
 		EntityManager em = this.emf.createEntityManager();
 		List<Administrator> result = em.createNamedQuery("findAllAdmin").getResultList();
 		em.close();
-		emf.close();
+		//emf.close();
 		return result;
 	}
 	

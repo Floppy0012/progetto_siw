@@ -22,7 +22,7 @@ public class EsameEffettuatoDao extends Dao<EsameEffettuato>{
 		EsameEffettuato esameEffettuato = em.find(EsameEffettuato.class, Id);
 		tx.commit();
 		em.close();
-		emf.close();
+		//emf.close();
 		return esameEffettuato;
 	}
 
@@ -32,7 +32,7 @@ public class EsameEffettuatoDao extends Dao<EsameEffettuato>{
 		EntityManager em = this.emf.createEntityManager();
 		List<EsameEffettuato> result = em.createNamedQuery("findAllEsamiEffettuati").getResultList();
 		em.close();
-		emf.close();
+	//	emf.close();
 		return result;
 	}
 

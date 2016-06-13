@@ -19,7 +19,6 @@ public abstract class Dao<T> {
 		em.persist(entity);
 		tx.commit();
 		em.close();
-		emf.close();
 	}
 
 	public void update(T entity) {
@@ -29,7 +28,6 @@ public abstract class Dao<T> {
 		em.merge(entity);
 		tx.commit();
 		em.close();
-		emf.close();
 	}
 
 	public void delete(T entity) {
@@ -40,9 +38,8 @@ public abstract class Dao<T> {
 		em.remove(toRemove);
 		tx.commit();
 		em.close();
-		emf.close();
 	}
-
+	
 	public abstract T findById(Object id);
 
 	public abstract List<T> findAll();

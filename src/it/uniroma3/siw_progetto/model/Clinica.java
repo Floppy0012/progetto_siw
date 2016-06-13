@@ -19,6 +19,7 @@ public class Clinica {
 	private Tipoesamedao tipoesamedao;
 	private Risultatodao risultatodao;
 	private PrerequisitoDao prerequisitodao;
+	private EntityManagerFactory emf;
 
 //	//metodo statico
 //	public static synchronized Clinica getInstance(){
@@ -29,7 +30,7 @@ public class Clinica {
 //	}
 
 	public Clinica(){
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		this.emf = Persistence.createEntityManagerFactory("clinica-unit");
 		this.pazientidao = new PazienteDao(emf);
 		this.amministratoridao = new AmministratoreDao(emf);
 		this.medicidao = new MedicoDao(emf);
@@ -116,6 +117,10 @@ public class Clinica {
 
 	public List<TipoEsame> getTuttiTipoEsame() {
 		return this.tipoesamedao.findAll();
+	}
+	
+	public void closeEntityManagerFactory(){
+		this.emf.close();
 	}
 	
 	
