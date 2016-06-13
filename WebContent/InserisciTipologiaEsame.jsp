@@ -9,7 +9,7 @@
    	   autorizzato = false;
    if (!autorizzato) {
    	   out.clear();
-	   RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp");
+	   RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp"); //possiamo inserire una pagina per il fallimento se non admin
    	   rd.forward(request, response);
 	   return;
 	}
