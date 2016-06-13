@@ -21,6 +21,7 @@
   </head>
   <body>
     <div> CIAO, <%out.print(utente.getUsername());%> SEI LOGGATO COME: <%out.print(utente.getRuolo());%> </div>
+    <a href="Base.jsp">Vai</a>
 
 
 </body>
