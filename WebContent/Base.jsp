@@ -16,7 +16,7 @@
 </head>
 <body>
 
-  <header id="content">
+	<header id="content">
 		<div>
 			<h1 align="center">
 				<a href="base.html">CIRCE<small> Clinica privata</small></a>
@@ -26,7 +26,7 @@
 
 		<nav class="navbar navbar-default navbar-static-top">
 			<div class="container-fluid">
-				
+
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed"
 						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -61,9 +61,7 @@
 								<li role="separator" class="divider"></li>
 								<li><a href="#">One more separated link</a></li>
 							</ul></li>
-						<li><a 
-								href="<c:url value = "/controller/tipoesame.list"/>">
-							esamina i nostri esami </a></li>
+									<li><a href="<c:url value = "/controller/tipoesame.list"/>"> esamina i nostri esami </a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">I Tuoi Esami: <span
@@ -88,11 +86,11 @@
 
 					</ul>
 				</div>
-				
+
 			</div>
-			
+
 		</nav>
-	</header> 
+	</header>
 
 
 	<script language=”javaScript”>
