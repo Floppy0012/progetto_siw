@@ -89,5 +89,13 @@ public class Medico {
 		return cognome;
 	}
 	
+	public String stampaLista(){
+		String s = null; 
+		for(EsameEffettuato esEff : this.esamieffettuati){
+			s+= esEff.toString();
+		}
+		return s;
+	}
+	
 	
 }

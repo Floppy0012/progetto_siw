@@ -5,11 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Prerequisiti</title>
 </head>
 <body>
-	<form action="<c:url value = "/controller/prerequisiti.inserisci"/>"
-		method="get">
+	<form action="<c:url value = "/controller/prerequisiti.inserisci"/>" method="get">
 		<c:forEach var="prerequisito" items="${prerequisiti}">
 			<input type="Checkbox" value="${prerequisito.nome}" name="prerequisiti"> ${prerequisito.nome}<br>
 				</c:forEach>

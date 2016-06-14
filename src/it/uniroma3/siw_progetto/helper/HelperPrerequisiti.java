@@ -9,8 +9,8 @@ public class HelperPrerequisiti {
 	public boolean isValid(HttpServletRequest request) {
 		TipoEsame tipoesame = (TipoEsame) request.getAttribute("TipoEsame");
 		boolean errori = false;
-		if(tipoesame==null){
-			errori=true;			
+		if(tipoesame == null){
+			errori = true;			
 		}
 		return !errori;
 	}

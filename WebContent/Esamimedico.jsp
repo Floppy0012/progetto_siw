@@ -1,6 +1,7 @@
+<%@page import="it.uniroma3.siw_progetto.model.EsameEffettuato"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import = "it.uniroma3.siw_progetto.model.Utente" %>
+<%@ page import = "it.uniroma3.siw_progetto.model.*" %>
   <% Utente utente = (Utente)session.getAttribute("utente");
    boolean autorizzato = true;
    if (utente!=null)
@@ -29,10 +30,11 @@
 	Cognome medico <input type="text" name="cognome">
 	<input type="submit" name="sumbit" value="invia" />
 </form>
+
 <ul>
-		<c:forEach var="esame" items="${esami}">
-		<li>codice esame ${esame.medico} è stateffettoato il giorno ${esame.DataEffettuazione}</li>	 
-		</c:forEach>
-		</ul>
+<li> <%Medico medico = (Medico)(request.getAttribute("medico"));
+		medico.stampaLista();%>
+		</li>
+</ul>
 </body>
 </html>

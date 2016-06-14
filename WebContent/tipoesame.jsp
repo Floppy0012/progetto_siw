@@ -10,7 +10,7 @@
 <body>
 	<h1>${tipoesame.nome}</h1>
 	<h2>specifiche:</h2>
-	<div>Costo: ${tipoesame.costo}</div>
+	<div>Costo:  ${tipoesame.costo} € </div>
 	<div>Descrizione: ${tipoesame.descrizione}</div>
 	
 

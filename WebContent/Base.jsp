@@ -54,7 +54,7 @@
 								<li><a
 									href="<c:url value = "/InserisciTipologiaEsame.jsp"/>">
 										Inserisci una nuova tipologia d'esame</a></li>
-								<li><a href="#">somenthing: </a></li>
+								<li><a href="<c:url value = "/Esamimedico.jsp"/>">Visualizza esami del medico: </a></li>
 								<li><a href="#">Something else here</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a href="#">Separated link</a></li>

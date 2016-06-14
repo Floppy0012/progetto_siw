@@ -24,11 +24,11 @@ public class CreaTipoesame implements Action {
 			Float costo = Float.parseFloat(request.getParameter("CostoTipo"));			
 			ClinicaAccessPoint clinica = new ClinicaAccessPoint();
 			TipoEsame TEs = clinica.creaTipoesame(name, descrizione, costo, null);
-			clinica.closeEntityManagerFactory();
+		//	clinica.closeEntityManagerFactory();
 			
 			ClinicaAccessPoint accessPoint= new ClinicaAccessPoint();
-			List<Prerequisito> prerequisiti= accessPoint.getTuttiPrerequisiti();
-			accessPoint.closeEntityManagerFactory();
+			List<Prerequisito> prerequisiti = accessPoint.getTuttiPrerequisiti();
+	//		accessPoint.closeEntityManagerFactory();
 			
 			request.setAttribute("prerequisiti",prerequisiti);
 			request.setAttribute("TipoEsame",TEs);

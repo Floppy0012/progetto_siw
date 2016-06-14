@@ -2,28 +2,37 @@ package it.uniroma3.siw_progetto.model;
 
 import java.util.*;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 
 public class ClinicaAccessPoint {
 
 	private Paziente pazienteCorr;
-//	private Administrator aministratoreCorr;
-	private Clinica clinica;
-	
-	
-	 public ClinicaAccessPoint() {
-		this.clinica= new Clinica();
+	//	private Administrator aministratoreCorr;
+	//private Clinica clinica;
+
+
+	public ClinicaAccessPoint() {
+		//this.clinica = new Clinica();
 	}
-	
+
 	public void CreaPrenotazione (String CodiceFiscale, long CodiceTipologia ){
-		this.pazienteCorr = this.clinica.getPaziente(CodiceFiscale);
-		TipoEsame tEsame = this.clinica.getTipoEsame(CodiceTipologia);
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		this.pazienteCorr = clinica.getPaziente(CodiceFiscale);
+		TipoEsame tEsame = clinica.getTipoEsame(CodiceTipologia);
 		EsamePrenotato esamePronotato =  new EsamePrenotato (this.pazienteCorr,tEsame);
-		this.clinica.saveEsamePrenotato(esamePronotato);
+		clinica.saveEsamePrenotato(esamePronotato);
+		emf.close();
 	}
 
 	public TipoEsame creaTipoesame(String nome, String descrizione, float costo, List<Prerequisito> prerequisiti){
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
 		TipoEsame tipoEsame = new TipoEsame(nome, descrizione,costo, prerequisiti);
-		this.clinica.saveTipoEsame(tipoEsame);		
+		clinica.saveTipoEsame(tipoEsame);
+		emf.close();
 		return tipoEsame;
 	}
 
@@ -32,53 +41,97 @@ public class ClinicaAccessPoint {
 	}
 
 	public void InserimentoRisultatiEsame(long id/*,elementi per il risultato da creare*/) {
-		EsameEffettuato ef = this.clinica.getEsameEffettuato(id);
-		ef.creaRisultato(this.clinica/*, elementi del risultato*/);
-		this.clinica.closeEntityManagerFactory();
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		EsameEffettuato ef = clinica.getEsameEffettuato(id);
+		ef.creaRisultato(clinica/*, elementi del risultato*/);
+		emf.close();
 	}
 
+
+
 	public List<Prerequisito> getTuttiPrerequisiti() {
-		return clinica.getTuttiprerequisiti();
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		List<Prerequisito> Tuttiprerequisiti = clinica.getTuttiprerequisiti();
+		emf.close();
+		return Tuttiprerequisiti;
 	}
 
 	public Prerequisito getprerequisito(String nome) {
-		return clinica.getPrerequisito(nome);
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		Prerequisito p = clinica.getPrerequisito(nome);
+		emf.close();
+		return p;
 	}
 
-	public TipoEsame getTipoEsame(Long id) {		
-		return this.clinica.getTipoEsame(id);
+	public TipoEsame getTipoEsame(Long id) {	
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		TipoEsame tipoEsame = clinica.getTipoEsame(id);
+		emf.close();
+		return tipoEsame;
 	}
 
 	public List<TipoEsame> getTuttiTipoEsame() {
-		return clinica.getTuttiTipoEsame();
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		List<TipoEsame> TuttiTipoEsame = clinica.getTuttiTipoEsame();
+		emf.close();
+		return TuttiTipoEsame;
 	}
 
 	public Paziente getPaziente(String username) {
-		return clinica.getPaziente(username);
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		Paziente p = clinica.getPaziente(username);
+		emf.close();
+		return p;
 	}
 
 	public Administrator getAmministratore(String username) {
-		return clinica.getAmministratore(username);
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		Administrator a = clinica.getAmministratore(username);
+		emf.close();
+		return a;
 	}
 
-	public void closeEntityManagerFactory() {
-		this.clinica.closeEntityManagerFactory();
-	}
 
 	public void creaPrerequisito(Prerequisito prerequisito) {
-		this.clinica.savePrerequisito(prerequisito);
-		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		clinica.savePrerequisito(prerequisito);
+		emf.close();
 	}
 
 	public void updateTipoesame(TipoEsame tipoEsame) {
-		this.clinica.AggiornaTipoesame(tipoEsame);
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		clinica.AggiornaTipoesame(tipoEsame);
+		emf.close();
 	}
 
 	public Medico getMedico(String nome, String cognome) {
-		return this.clinica.getMedico(nome, cognome);
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		Medico m = clinica.getMedico(nome, cognome);
+		emf.close();
+		return m;
 	}
 
 	public void salvaAmministratore(Administrator administrator) {
-		this.clinica.saveAmministratore(administrator);	
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		clinica.saveAmministratore(administrator);
+		emf.close();
+	}
+
+	public void salvaPaziente(Paziente paziente) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		clinica.savePaziente(paziente);
+		emf.close();
 	}
 }

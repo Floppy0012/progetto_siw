@@ -18,8 +18,7 @@ public class Clinica {
 	private PrerequisitoDao prerequisitodao;
 	private EntityManagerFactory emf;
 
-	public Clinica(){
-		this.emf = Persistence.createEntityManagerFactory("clinica-unit");
+	public Clinica(EntityManagerFactory emf){
 		this.pazientidao = new PazienteDao(emf);
 		this.amministratoridao = new AmministratoreDao(emf);
 		this.medicidao = new MedicoDao(emf);

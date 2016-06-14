@@ -20,7 +20,7 @@
     <title>Login</title>
   </head>
   <body>
-    <div> CIAO,  SEI LOGGATO COME:  </div>
+    <div> Ciao,<%out.print(utente.getUsername()); %>   sei loggato:   <%out.print(utente.getRuolo()); %>  </div>
     <a href="Base.jsp">Vai</a>
 
 

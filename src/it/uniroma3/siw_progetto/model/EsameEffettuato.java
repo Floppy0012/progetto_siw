@@ -70,6 +70,12 @@ public class EsameEffettuato {
 		this.EsamePrenotato = esPren;
 	}
 	
+	@Override
+	public String toString(){
+		String s = "Data Effettuazione = " + 
+				   "Nome Esame = " + this.EsamePrenotato.getTipoEsame().getNome()+"/n";
+		return s; 
+	}
 	
 
 

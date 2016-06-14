@@ -22,14 +22,7 @@ public class FacadeAutenticazioneImpl implements FacadeAutenticazione {
 			}
 		}
 		//se non fosse nessuno dei due, restituisco null
-		accesspoint.closeEntityManagerFactory();
 		return u;
 	}
 
 }
-//utente utente = accespoin.getUtente(username);
-//if(utente.getRuolo == paziente){
-//	Paziente p = accessopoint.getPaziente(username);
-//	if(p.CheckPassword(password))
-//		return utente;
-//	if()

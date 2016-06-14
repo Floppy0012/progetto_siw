@@ -71,6 +71,7 @@ public class EsamePrenotato {
 	public void setEsameEffettuato(EsameEffettuato esEff) {
 		this.EsameEffettuato = esEff;
 	}
+	
 
 
 
