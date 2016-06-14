@@ -41,7 +41,7 @@ public class InserisciPrerequisiti implements Action {
 			return "/tipoesame.jsp";
 		}
 
-		return "/paginaerrore.jsp";
+		return "/paginaerrorePrerequisiti.jsp";
 	}
 }
 

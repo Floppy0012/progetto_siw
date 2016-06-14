@@ -45,6 +45,11 @@ public class Mainprova {
 		tx.commit();
 		em.close();
 		emf.close();
+//		
+//		ClinicaAccessPoint access = new ClinicaAccessPoint();
+//		TipoEsame tE1 = new TipoEsame("C","Descrizione",8585858,null);
+//		tE1.setCosto(1);
+//		access.updateTipoesame(tE1);
 		
 //		
 	
