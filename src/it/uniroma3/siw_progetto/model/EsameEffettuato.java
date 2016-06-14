@@ -15,7 +15,7 @@ public class EsameEffettuato {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long Id;
 	
-	@OneToOne
+	@OneToOne (fetch=FetchType.EAGER)
 	private EsamePrenotato EsamePrenotato;
 	
 	@ManyToOne
@@ -24,7 +24,7 @@ public class EsameEffettuato {
 	@Temporal (TemporalType.DATE)
 	private Date DataEffettuazione;
 	
-	@OneToMany(cascade = {CascadeType.REMOVE}/*, mappedBy = "esameEffettuato"*/)
+	@OneToMany(cascade = {CascadeType.REMOVE})
 	@JoinColumn(name = "EsameEffettuato_id")
 	private List<Risultato> risultati;
 	

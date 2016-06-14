@@ -1,5 +1,4 @@
 package it.uniroma3.siw_progetto.action;
-import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import it.uniroma3.siw_progetto.model.FacadeAutenticazione;

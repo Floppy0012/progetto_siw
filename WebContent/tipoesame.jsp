@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -13,14 +13,12 @@
 	<div>Costo: ${tipoesame.costo}</div>
 	<div>Descrizione: ${tipoesame.descrizione}</div>
 	
-	 <c:if test="${tipoesame.prerequisiti}!= null">
-		 <div>
+
 			<ul>		
 				<c:forEach var="prerequisito" items="${tipoesame.prerequisiti}">
 					<li>${prerequisito.descrizione}</li>
 				</c:forEach>
 			</ul>		
-		</div> 
-	</c:if>
+	
 </body>
 </html>

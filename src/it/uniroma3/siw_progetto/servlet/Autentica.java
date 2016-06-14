@@ -8,8 +8,10 @@ import it.uniroma3.siw_progetto.action.LoginAction;
 
 @WebServlet("/login.do")
 public class Autentica extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
     					throws IOException, ServletException {
 
 		String prossimaPagina = "/fallimento.jsp";

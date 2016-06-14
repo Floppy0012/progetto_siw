@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import it.uniroma3.siw_progetto.helper.HelperTipoesame;
 import it.uniroma3.siw_progetto.model.ClinicaAccessPoint;
@@ -18,22 +19,21 @@ public class CreaTipoesame implements Action {
 		HelperTipoesame helper = new HelperTipoesame();
 
 		if(helper.isValid(request)){
-			ClinicaAccessPoint clinica = new ClinicaAccessPoint();
 			String name = request.getParameter("NomeTipo");
 			String descrizione = request.getParameter("DescrizioneTipo");
-			Float costo = Float.parseFloat(request.getParameter("CostoTipo"));
-			String[] prerequisiti = request.getParameterValues("prerequisiti[]"); 
+			Float costo = Float.parseFloat(request.getParameter("CostoTipo"));			
+			ClinicaAccessPoint clinica = new ClinicaAccessPoint();
+			TipoEsame TEs = clinica.creaTipoesame(name, descrizione, costo, null);
+			clinica.closeEntityManagerFactory();
 			
-			List<Prerequisito> prerequisitilist = new ArrayList<>();
-			for ( int i=0; i<prerequisiti.length; i++){
-				Prerequisito prerequisito= clinica.getprerequisito(prerequisiti[i]);
-				prerequisitilist.add(prerequisito);
-			}
-
-			TipoEsame TEs = clinica.creaTipoesame(name, descrizione, costo, prerequisitilist);
-			request.setAttribute("TipoEsame", TEs);
-
-			return "/tipoesame.jsp";
+			ClinicaAccessPoint accessPoint= new ClinicaAccessPoint();
+			List<Prerequisito> prerequisiti= accessPoint.getTuttiPrerequisiti();
+			accessPoint.closeEntityManagerFactory();
+			
+			request.setAttribute("prerequisiti",prerequisiti);
+			request.setAttribute("TipoEsame",TEs);
+			
+			return "/segliprerequisiti.jsp";
 		}
 		
 		return "/InserisciTipologiaEsame.jsp";

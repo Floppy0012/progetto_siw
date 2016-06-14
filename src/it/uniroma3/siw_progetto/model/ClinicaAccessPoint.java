@@ -6,7 +6,7 @@ import java.util.*;
 public class ClinicaAccessPoint {
 
 	private Paziente pazienteCorr;
-	private Administrator aministratoreCorr;
+//	private Administrator aministratoreCorr;
 	private Clinica clinica;
 	
 	
@@ -23,16 +23,12 @@ public class ClinicaAccessPoint {
 
 	public TipoEsame creaTipoesame(String nome, String descrizione, float costo, List<Prerequisito> prerequisiti){
 		TipoEsame tipoEsame = new TipoEsame(nome, descrizione,costo, prerequisiti);
-		this.clinica.saveTipoEsame(tipoEsame);
-		this.clinica.closeEntityManagerFactory();
+		this.clinica.saveTipoEsame(tipoEsame);		
 		return tipoEsame;
 	}
 
-	public List<EsameEffettuato> VisualizzaEsamiMedico(long id){
-		Medico m = this.clinica.getMedico(id);
-		this.clinica.closeEntityManagerFactory();
-		return m.mostraesami();
-
+	public List<EsameEffettuato> VisualizzaEsamiMedico(Medico medico){
+		return medico.mostraesami();
 	}
 
 	public void InserimentoRisultatiEsame(long id/*,elementi per il risultato da creare*/) {
@@ -42,9 +38,7 @@ public class ClinicaAccessPoint {
 	}
 
 	public List<Prerequisito> getTuttiPrerequisiti() {
-		List<Prerequisito> Prerequisiti = clinica.getTuttiprerequisiti();
-		this.clinica.closeEntityManagerFactory();
-		return Prerequisiti;
+		return clinica.getTuttiprerequisiti();
 	}
 
 	public Prerequisito getprerequisito(String nome) {
@@ -69,5 +63,22 @@ public class ClinicaAccessPoint {
 
 	public void closeEntityManagerFactory() {
 		this.clinica.closeEntityManagerFactory();
+	}
+
+	public void creaPrerequisito(Prerequisito prerequisito) {
+		this.clinica.savePrerequisito(prerequisito);
+		
+	}
+
+	public void updateTipoesame(TipoEsame tipoEsame) {
+		this.clinica.AggiornaTipoesame(tipoEsame);
+	}
+
+	public Medico getMedico(String nome, String cognome) {
+		return this.clinica.getMedico(nome, cognome);
+	}
+
+	public void salvaAmministratore(Administrator administrator) {
+		this.clinica.saveAmministratore(administrator);	
 	}
 }

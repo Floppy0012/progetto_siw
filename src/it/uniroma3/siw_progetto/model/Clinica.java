@@ -6,11 +6,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import it.uniroma3.siw_progetto.persistence.*;
 
-
-//Clinica Singleton
 public class Clinica {
 
-//	private static Clinica Instance;
 	private PazienteDao pazientidao;
 	private AmministratoreDao amministratoridao;
 	private MedicoDao medicidao;
@@ -20,14 +17,6 @@ public class Clinica {
 	private Risultatodao risultatodao;
 	private PrerequisitoDao prerequisitodao;
 	private EntityManagerFactory emf;
-
-//	//metodo statico
-//	public static synchronized Clinica getInstance(){
-//		if(Instance == null){
-//			Instance = new Clinica();
-//		}
-//		return Instance;
-//	}
 
 	public Clinica(){
 		this.emf = Persistence.createEntityManagerFactory("clinica-unit");
@@ -121,6 +110,19 @@ public class Clinica {
 	
 	public void closeEntityManagerFactory(){
 		this.emf.close();
+	}
+
+
+
+	public void AggiornaTipoesame(TipoEsame tipoEsame) {
+		this.tipoesamedao.update(tipoEsame);
+		
+	}
+
+
+
+	public Medico getMedico(String nome, String cognome) {	
+		return this.medicidao.getMedico(nome,cognome);
 	}
 	
 	

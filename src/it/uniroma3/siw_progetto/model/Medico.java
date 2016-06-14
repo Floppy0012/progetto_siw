@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +13,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
-@NamedQuery(name="findAllMedici", query="SELECT m FROM Medico m")
+@NamedQuery(name="findmedico", query="SELECT m FROM Medico m Where m.nome = ? and m.cognome= ?")
 public class Medico {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -27,7 +28,7 @@ public class Medico {
 	@Column //(nullable= false)
 	private String specialistica;
 	
-	@OneToMany(mappedBy="medico")
+	@OneToMany(mappedBy="medico",fetch= FetchType.EAGER)
 	private List<EsameEffettuato> esamieffettuati;
 
 	public Medico(){

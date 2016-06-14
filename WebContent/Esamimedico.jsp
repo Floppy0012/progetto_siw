@@ -19,33 +19,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>InserisciTipoEsame</title>
+<title>visualizza esami medico</title>
 </head>
 <body>
-
-
-	<div>
-		<h2>Inserisci la tipologia Esame:</h2>
-
-		<form action="<c:url value = "/controller/tipoesame.crea"/>" method="get">
-			<div>
-				Nome: <input type="text" name="NomeTipo" value="${param.NomeTipo}">${nomeError}</div>
-			<div>
-				Costo : <input type="float" name="CostoTipo"
-					value="${param.CostoTipo}">${costoError}</div>
-			<div>
-				Descrizione :<input type="text" name="DescrizioneTipo"
-					value="${param.DescrizioneTipo}"> ${descrizioneError}
-			</div>
-			<div>
-
-			</div>
-			<input type="submit" name="sumbit" value="invia" />
-		</form>
-
-
-
-	</div>
-
+<form action="<c:url value = "/controller/medico.cerca"/>" method="get">
+	<div>${nomeError}</div>
+	Nome medico <input type="text" name="nome">
+	<div>${cognomeError}</div>
+	Cognome medico <input type="text" name="cognome">
+	<input type="submit" name="sumbit" value="invia" />
+</form>
+<ul>
+		<c:forEach var="esame" items="${esami}">
+		<li>codice esame ${esame.medico} è stateffettoato il giorno ${esame.DataEffettuazione}</li>	 
+		</c:forEach>
+		</ul>
 </body>
 </html>

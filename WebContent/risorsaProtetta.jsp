@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
- <%@ page import = "it.uniroma3.siw_progetto.model.Utente" %>
-<% Utente utente = (Utente)session.getAttribute("utente");
+	<%@ page import = "it.uniroma3.siw_progetto.model.Utente" %>
+  <% Utente utente = (Utente)session.getAttribute("utente");
    boolean autorizzato = true;
    if (utente!=null)
 	   autorizzato &= (utente.getRuolo().equals("admin"));
@@ -9,7 +9,7 @@
    	   autorizzato = false;
    if (!autorizzato) {
    	   out.clear();
-	   RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp");
+	   RequestDispatcher rd = application.getRequestDispatcher("/fallimento.jsp"); //possiamo inserire una pagina per il fallimento se non admin
    	   rd.forward(request, response);
 	   return;
 	}
@@ -20,7 +20,7 @@
     <title>Login</title>
   </head>
   <body>
-    <div> CIAO, <%out.print(utente.getUsername());%> SEI LOGGATO COME: <%out.print(utente.getRuolo());%> </div>
+    <div> CIAO,  SEI LOGGATO COME:  </div>
     <a href="Base.jsp">Vai</a>
 
 

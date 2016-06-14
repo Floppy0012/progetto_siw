@@ -18,7 +18,7 @@ public class EsamePrenotato {
 	@ManyToOne
 	private TipoEsame tipoEsame;
 
-	@OneToOne(mappedBy = "EsamePrenotato")//(fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "EsamePrenotato", fetch = FetchType.LAZY)
 	private EsameEffettuato EsameEffettuato;
 
 	@Temporal (TemporalType.TIMESTAMP)
