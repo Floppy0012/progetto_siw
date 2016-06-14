@@ -1,15 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Circe-Clinica</title>
 <!-- Fogli di stile -->
 <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="css/stili-custom.css" rel="stylesheet" media="screen">
+<!-- Modernizr -->
+<script src="js/modernizr.custom.js"></script>
+
 </head>
 <body>
 
@@ -51,8 +54,7 @@
 								<li><a
 									href="<c:url value = "/InserisciTipologiaEsame.jsp"/>">
 										Inserisci una nuova tipologia d'esame</a></li>
-								<li><a href="<c:url value = "/Esamimedico.jsp"/>">visualizza
-										esami medico </a></li>
+								<li><a href="#">somenthing: </a></li>
 								<li><a href="#">Something else here</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a href="#">Separated link</a></li>
@@ -91,6 +93,9 @@
 	</header>
 
 
+	<script language=”javaScript”>
+		document.write(footer);
+	</script>
 	<!-- jQuery e plugin JavaScript  -->
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
