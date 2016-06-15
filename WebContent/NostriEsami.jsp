@@ -14,6 +14,6 @@
 			<li><a href="<c:url value="/controller/tipoesame.get?id=${tipoesame.id}"/>">${tipoesame.nome}</a></li>
 		</c:forEach>
 	</ul>
-	
+	<a href="<c:url value="/Base.jsp"/>">Torna alla Home</a>
 </body>
 </html>

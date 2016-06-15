@@ -26,5 +26,6 @@
 Codice Fiscale: <input type = "text" name = "CodiceFiscale" value = "${param.CodiceFiscale}">
 <input type = "submit" name="submit" value="Invia"/>
 </form>
+<div>${TipoEsameError}</div>
 </body>
 </html>

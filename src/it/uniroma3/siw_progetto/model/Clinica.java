@@ -3,7 +3,6 @@ package it.uniroma3.siw_progetto.model;
 import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import it.uniroma3.siw_progetto.persistence.*;
 
 public class Clinica {
@@ -128,6 +127,12 @@ public class Clinica {
 
 	public TipoEsame PrendiTipoesame(String nometipoesame) {		
 		return this.tipoesamedao.getTipoesame(nometipoesame);
+	}
+
+
+
+	public void AggiornaPaziente(Paziente p) {
+		this.pazientidao.update(p);
 	}
 	
 	

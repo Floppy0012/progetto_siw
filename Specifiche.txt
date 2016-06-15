@@ -1,0 +1,39 @@
+La clinica CIRCE, si occupa di effettura esami medici di vario genere.
+La clinica usa il software per gestire prenotazioni per gli esami da parte dei pazienti, e anche per permettere a utenti occasionali di consultare le varie tipologie di esame offerte dalla clinica.
+(Abbiamo sviluppato i seguenti casi d'uso: UC1,UC2, UC4, UC5)
+L'uso del sistema in discussione è descritto dai seguenti casi d'uso: 
+
+Caso d'uso UC1: consultazione offerta della clinica - Attore primario : utente non registrato
+Scenario principale di successo:
+1. L'Utente vuole consultare l'offerta di esami della clinica
+2. Lo Studente sceglie l'attività "I nostri esami". Il sistema mostra l'elenco delle tipologie di esame offerte 
+   dalla clinica.
+3. L'Utente clicca sul esame che gli interessa. Il sistema mostra le informazioni relative a quel esame.
+
+L'utente ripete il passo 3 fino a che non indica che ha terminato.
+
+
+caso d'uso UC2: crea nuova prenotazione - Attore primario: amministratore
+Scenario prinicipale di successo:
+1. L'amministrazione vuole effettuare una nuova prenotazione richiesta da un paziente.
+2. L'amministrazione sceglie l'attività "Effettua prenotazione". 
+3. L'amministratore inserisci il codice fiscale del paziente
+4. Il sistema restituisce cognome, nome del paziente e una lista di tipologia esame
+5. L'amministratore sceglie una tipologia esame fra quelle proposte
+6. Il sistema registra la prenotazione, registrando anche la data e l'ora dell'inserimento e visualizza le informazioni di riepilogo della prenotazione
+
+
+caso d'uso UC4: inserimento tipologia di esame - Attore primario: amministratore
+Scenario principale di successo:
+1. l'amministratore vuole inserire una nuova tipologia di esame
+2. l'amministratore sceglie l'attività "Inserisci nuova tipologia d'esame"
+3. l'amministratore inserisce il nome della tipologia di esame da creare, oltre ad una descrizione, un costo e un insieme di
+   prerequisiti per l'esame. Il sistema registra la nuova tipologia di esame.
+
+
+caso d'uso UC5: consulta esami effettuati da un medico - Attore primario: amministratore
+Scenario principale di successo:
+1. l'amministratore vuole consultare gli esami effettuati da un certo medico
+2. l'amministratore sceglie l'attività "visualizza esami del medico". Il sistema chiede di inserire nome e cognome del medico che si intende visualizzare.
+3. l'amministratore inserisce il nome e cognome del medico
+4. Il sistema mmostra tutti gli esami effettuati dal medico con le informazioni relative agli esami effettuati. 

@@ -23,9 +23,9 @@
 <title>RiepilogoPrenotazione</title>
 </head>
 <body>
-<H1> Prenotazione effettuata con successo</H1><br>
-InfoPrenotazione: <br>
-${InfoPrenotazione}
+	<H1>Prenotazione effettuata con successo</H1>
+	<br> InfoPrenotazione:
+	<br> ${InfoPrenotazione}
 
 </body>
 </html>

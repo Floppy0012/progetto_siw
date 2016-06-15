@@ -11,15 +11,22 @@ public class CreaEsameprenotato implements Action {
 	public String perform(HttpServletRequest request) {
 		HelperCreaEsamePrenotato helper = new HelperCreaEsamePrenotato();
 		if(helper.isValid(request)){
+			String cf= request.getParameter("CodiceFiscale"); 
+			String nomete= request.getParameter("tipiEsami");
 			ClinicaAccessPoint accessPoint = new ClinicaAccessPoint();
-			Paziente P = accessPoint.getPaziente(request.getParameter("CodiceFiscale"));
-			TipoEsame TE = accessPoint.PrendiTipoesame(request.getParameter("tipiEsami"));
+			Paziente P = accessPoint.getPaziente(cf);
+			TipoEsame TE = accessPoint.PrendiTipoesame(nomete);
 			EsamePrenotato esameprenotato = accessPoint.CreaPrenotazione(P, TE);
+			P.AddEsamePrenotato(esameprenotato);
+			accessPoint.updatePaziente(P);
+			
 			String InfoPrenotazione = esameprenotato.toString();
+			
 			request.setAttribute("InfoPrenotazione", InfoPrenotazione);
+			
 			return "/PrenotazioneEffettuata.jsp";
 		}
-		return "/CreaEsameScegliTipoEsame.jsp";
+		return "/CreazioneEsamePrenotato.jsp";
 	}
 
 }

@@ -19,6 +19,6 @@
 					<li>${prerequisito.descrizione}</li>
 				</c:forEach>
 			</ul>		
-	
+	<a href="<c:url value="/Base.jsp"/>">Torna alla Home</a>
 </body>
 </html>

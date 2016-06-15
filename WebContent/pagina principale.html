@@ -1,0 +1,33 @@
+
+<!DOCTYPE head >
+<html>
+<head>
+<title>Sito</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+function cambia(pagina){
+   var frame;
+   if(document.getElementById) frame = document.getElementById('pageFrame');
+   else frame = document.all['pageFrame'];
+   frame.src = pagina;
+}
+</script>
+</head>
+<body>
+	<a href="#" onclick="cambia('pagina1.html');">Home</a>
+	<a href="#" onclick="cambia('pagina2.html');">ciccio</a>
+	<div class="col-sm-3">
+	</div>
+	<div class="col-sm-6">
+	<iframe id="pageFrame" frameborder="1" align="middle" height=70% width=100%></iframe>
+	</div>
+	<div class="col-sm-3">
+	</div>
+	
+            
+           
+	</div>
+</body>
+</html>

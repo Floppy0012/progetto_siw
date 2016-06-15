@@ -12,10 +12,10 @@ public class Paziente {
 	@Id
 	private String codiceFiscale;
 	
-	@Column(nullable=false)
+
 	private String nome; 
 	
-	@Column(nullable=false)
+	
 	private String cognome;
 	
 	@Temporal (TemporalType.DATE)
@@ -23,7 +23,7 @@ public class Paziente {
 	
 	private String password; //Come criptare?
 	
-	@OneToMany(mappedBy= "paziente")
+	@OneToMany(mappedBy= "paziente",fetch=FetchType.EAGER)
 	private List<EsamePrenotato> esamiPrenotati;
 
 	

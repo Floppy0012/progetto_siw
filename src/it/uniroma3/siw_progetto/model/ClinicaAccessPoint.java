@@ -136,5 +136,12 @@ public class ClinicaAccessPoint {
 		return p;
 	}
 
+	public void updatePaziente(Paziente p) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		clinica.AggiornaPaziente(p);
+		emf.close();
+	}
+
 
 }

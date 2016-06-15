@@ -3,7 +3,6 @@ package it.uniroma3.siw_progetto.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,13 +18,13 @@ public class Medico {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	@Column(nullable= false)
+	
 	private String nome;
 	
-	@Column(nullable= false)
+	
 	private String cognome;
 	
-	@Column(nullable= false)
+	
 	private String specialistica;
 	
 	@OneToMany(mappedBy="medico",fetch= FetchType.EAGER)

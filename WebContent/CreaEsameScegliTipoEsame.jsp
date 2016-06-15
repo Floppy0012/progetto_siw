@@ -23,11 +23,10 @@
 <title>ScegliTipoEsame</title>
 </head>
 <body>
-<div>${CodiceFiscaleError}</div>
-	<form action="<c:url value = "/controller/esameprenotato.crea"/>"
-		method="get">
-		Codice Fiscale : <input type="text" value="${CodiceFiscale}"
-			name="CodiceFiscale"> Nome : <input type="text" value="${nomePaziente}"> Cognome : <input type="text" value="${cognomePaziente }">
+	<form action="<c:url value = "/controller/esameprenotato.crea"/>" method="get">
+		Codice Fiscale : <input type="text" value="${CodiceFiscale}" name="CodiceFiscale"> 
+		Nome : <input type="text" value="${nomePaziente}">
+		Cognome : <input type="text" value="${cognomePaziente }">
 		<fieldset>
 			<legend> Tipologia Esami: </legend>
 				<c:forEach var="tipoEsame" items="${tipiEsami}">
