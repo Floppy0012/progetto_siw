@@ -1,5 +1,7 @@
 package it.uniroma3.siw_progetto.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -70,10 +72,14 @@ public class EsameEffettuato {
 		this.EsamePrenotato = esPren;
 	}
 	
+
+	
 	@Override
 	public String toString(){
-		String s = "Data Effettuazione = " + 
-				   "Nome Esame = " + this.EsamePrenotato.getTipoEsame().getNome()+"/n";
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		
+		String s = "Data Effettuazione = "+df.format(this.DataEffettuazione)+" "+
+				  EsamePrenotato.toString()+"\n";
 		return s; 
 	}
 	

@@ -134,4 +134,12 @@ public class ClinicaAccessPoint {
 		clinica.savePaziente(paziente);
 		emf.close();
 	}
+
+	public TipoEsame PrendiTipoesame(String nometipoesame) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		TipoEsame t= clinica.PrendiTipoesame(nometipoesame);
+				emf.close();
+		return t;
+	}
 }

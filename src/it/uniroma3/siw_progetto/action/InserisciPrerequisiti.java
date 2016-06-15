@@ -17,6 +17,7 @@ public class InserisciPrerequisiti implements Action {
 		HelperPrerequisiti helper = new HelperPrerequisiti();
 		//DANI È POSSIBILE CHE FALLISCA QUESTA IF??? 
 		if(helper.isValid(request)){
+			String nometipoesame= request.getParameter("nome");
 			String[] prerequisiti = request.getParameterValues("prerequisiti");
 			List<Prerequisito> prerequisitilist = new ArrayList<>();
 			ClinicaAccessPoint accessPoint = new ClinicaAccessPoint();
@@ -27,7 +28,7 @@ public class InserisciPrerequisiti implements Action {
 			//	accessPoint.closeEntityManagerFactory();
 			ClinicaAccessPoint point = new ClinicaAccessPoint();
 
-			TipoEsame tipoEsame = (TipoEsame) request.getAttribute("TipoEsame");
+			TipoEsame tipoEsame = point.PrendiTipoesame(nometipoesame);
 			//provo a riprenderlo dal database
 			/*------>  TipoEsame tipoEsame = point.getTipoEsame(((TipoEsame) request.getAttribute("TipoEsame")).getId());*/
 			tipoEsame.setPrerequisiti(prerequisitilist);
@@ -36,7 +37,7 @@ public class InserisciPrerequisiti implements Action {
 			//	point.closeEntityManagerFactory();
 			//tipoEsame.setPrerequisiti(prerequisitilist);//lo sposto su
 
-			request.setAttribute("TipoEsame",tipoEsame);
+			request.setAttribute("tipoesame",tipoEsame);
 
 			return "/tipoesame.jsp";
 		}

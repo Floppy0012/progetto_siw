@@ -123,6 +123,12 @@ public class Clinica {
 	public Medico getMedico(String nome, String cognome) {	
 		return this.medicidao.getMedico(nome,cognome);
 	}
+
+
+
+	public TipoEsame PrendiTipoesame(String nometipoesame) {		
+		return this.tipoesamedao.getTipoesame(nometipoesame);
+	}
 	
 	
 }

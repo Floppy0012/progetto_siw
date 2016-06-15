@@ -13,7 +13,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
-@NamedQuery(name="findmedico", query="SELECT m FROM Medico m Where m.nome = ? and m.cognome= ?")
+@NamedQuery(name="findAllMedici", query="SELECT m FROM Medico m")
 public class Medico {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -36,6 +36,7 @@ public class Medico {
 	}
 
 	public Medico (String nome, String cognome,String specialistica){
+		this.esamieffettuati= new ArrayList<>();
 		this.nome=nome;
 		this.cognome=cognome;
 		this.specialistica= specialistica;
@@ -90,7 +91,7 @@ public class Medico {
 	}
 	
 	public String stampaLista(){
-		String s = null; 
+		String s = ""; 
 		for(EsameEffettuato esEff : this.esamieffettuati){
 			s+= esEff.toString();
 		}

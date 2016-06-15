@@ -1,5 +1,7 @@
 package it.uniroma3.siw_progetto.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.persistence.*;
@@ -72,6 +74,14 @@ public class EsamePrenotato {
 		this.EsameEffettuato = esEff;
 	}
 	
+	@Override
+	public String toString(){
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		
+		String s = "Codice fiscale del Paziente= "+this.paziente.getCodiceFiscale()+" Nome dell'esame= "+this.tipoEsame.getNome()
+				+" Data prenotazione esame= "+ df.format(this.dataPrenotazione);
+		return s;
+	}
 
 
 

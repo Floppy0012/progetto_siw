@@ -72,17 +72,13 @@
 								<li><a href="#">Effettuati</a></li>
 								<li><a href="#">Risultati</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="Login.jsp">LOGIN</a></li>
+								<li><a href="#">i tuoi dati personali</a></li>
 							</ul></li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
-						<form class="navbar-form navbar-left" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<button type="submit" class="btn btn-default">Submit</button>
-						</form>
+						<li><a href="Login.jsp">LOGIN</a></li>
+
 
 					</ul>
 				</div>

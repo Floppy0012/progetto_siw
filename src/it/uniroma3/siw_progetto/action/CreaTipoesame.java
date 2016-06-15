@@ -1,10 +1,8 @@
 package it.uniroma3.siw_progetto.action;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import it.uniroma3.siw_progetto.helper.HelperTipoesame;
 import it.uniroma3.siw_progetto.model.ClinicaAccessPoint;
@@ -31,7 +29,9 @@ public class CreaTipoesame implements Action {
 	//		accessPoint.closeEntityManagerFactory();
 			
 			request.setAttribute("prerequisiti",prerequisiti);
-			request.setAttribute("TipoEsame",TEs);
+			
+			request.setAttribute("tipoesamenome",TEs.getNome());
+			//request.setAttribute("TipoEsame",TEs);
 			
 			return "/segliprerequisiti.jsp";
 		}

@@ -4,19 +4,22 @@ package it.uniroma3.siw_progetto.helper;
 
 import javax.servlet.http.HttpServletRequest;
 
-//import it.uniroma3.siw_progetto.model.Prerequisito;
-import it.uniroma3.siw_progetto.model.TipoEsame;
-
 public class HelperPrerequisiti {
 
-	public boolean isValid(HttpServletRequest request) {
-		TipoEsame tipoesame = (TipoEsame) request.getAttribute("TipoEsame");
+	public boolean isValid( HttpServletRequest request) {
+		String tipoesame= request.getParameter("nome");
+		String[] prereqiusiti= request.getParameterValues("prerequisiti");
 		//List<Prerequisito> prerequisiti = (List<Prerequisito>) request.getAttribute("prerequisiti");
 		boolean errori = false;
 		if(tipoesame == null){
 	//		if(prerequisiti == null){
 		errori = true;			
 		}
+	
+		if (prereqiusiti.length==0 ){
+			errori = true;
+		}
+			
 		return !errori;
 	}
 
