@@ -127,5 +127,14 @@ public class ClinicaAccessPoint {
 		return t;
 	}
 
+	public Paziente creapaziente(String string, String string2, String string3, Date object, String string4) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
+		Clinica clinica = new Clinica(emf);
+		Paziente p= new Paziente(string, string2, string3, object, string4);
+		clinica.savePaziente(p);
+		emf.close();
+		return p;
+	}
+
 
 }
