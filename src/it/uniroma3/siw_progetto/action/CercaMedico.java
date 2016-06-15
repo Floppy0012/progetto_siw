@@ -20,7 +20,6 @@ public class CercaMedico implements Action {
 			ClinicaAccessPoint accessPoint = new ClinicaAccessPoint();
 			Medico medico = accessPoint.getMedico(nome,cognome);
 			String stringaparametri= medico.stampaLista();
-			//List<EsameEffettuato> esamieffettuati= accessPoint.VisualizzaEsamiMedico(medico);
 			request.setAttribute("nomiParametriEsame", stringaparametri);
 			return "/Esamimedico.jsp";
 		}

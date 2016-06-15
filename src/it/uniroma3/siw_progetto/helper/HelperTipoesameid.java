@@ -14,7 +14,7 @@ public class HelperTipoesameid {
 		{
 			try{
 				Long.parseLong(id);
-				}
+			}
 			catch(NumberFormatException e){
 				errori= true;
 				request.setAttribute("id", "id non valido");

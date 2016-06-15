@@ -40,16 +40,7 @@ public class EsameEffettuato {
 		this.DataEffettuazione = data; //nel mio controller HELPER dovrò implemenatare DateValidator validator = new DateValidator() come SIW-JDC-MVC-Es
 	}
 
-	public void creaRisultato(Clinica clinica/*elemetni*/) {
-		Risultato risultato= new Risultato(/*elementi*/);
-		this.AddRisulato(risultato);
-		clinica.saveRisultato(risultato);
-	}
 
-	public void AddRisulato (Risultato ris){
-		this.risultati.add(ris);
-	}
-	
 	public void setRisultato(List<Risultato> res2) {
 		this.risultati = res2;
 	}
@@ -71,8 +62,6 @@ public class EsameEffettuato {
 	public void setEsamePrenotato(EsamePrenotato esPren) {
 		this.EsamePrenotato = esPren;
 	}
-	
-
 	
 	@Override
 	public String toString(){

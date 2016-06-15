@@ -19,13 +19,13 @@ public class Medico {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	@Column//(nullable= false)
+	@Column(nullable= false)
 	private String nome;
 	
-	@Column//(nullable= false)
+	@Column(nullable= false)
 	private String cognome;
 	
-	@Column //(nullable= false)
+	@Column(nullable= false)
 	private String specialistica;
 	
 	@OneToMany(mappedBy="medico",fetch= FetchType.EAGER)

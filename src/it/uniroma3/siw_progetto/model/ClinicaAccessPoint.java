@@ -8,23 +8,17 @@ import javax.persistence.Persistence;
 
 public class ClinicaAccessPoint {
 
-	private Paziente pazienteCorr;
-	//	private Administrator aministratoreCorr;
-	//private Clinica clinica;
-
-
 	public ClinicaAccessPoint() {
-		//this.clinica = new Clinica();
+
 	}
 
-	public void CreaPrenotazione (String CodiceFiscale, long CodiceTipologia ){
+	public EsamePrenotato CreaPrenotazione (Paziente paziente, TipoEsame tE ){
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
 		Clinica clinica = new Clinica(emf);
-		this.pazienteCorr = clinica.getPaziente(CodiceFiscale);
-		TipoEsame tEsame = clinica.getTipoEsame(CodiceTipologia);
-		EsamePrenotato esamePronotato =  new EsamePrenotato (this.pazienteCorr,tEsame);
+		EsamePrenotato esamePronotato =  new EsamePrenotato (paziente ,tE);
 		clinica.saveEsamePrenotato(esamePronotato);
 		emf.close();
+		return esamePronotato;
 	}
 
 	public TipoEsame creaTipoesame(String nome, String descrizione, float costo, List<Prerequisito> prerequisiti){
@@ -39,16 +33,6 @@ public class ClinicaAccessPoint {
 	public List<EsameEffettuato> VisualizzaEsamiMedico(Medico medico){
 		return medico.mostraesami();
 	}
-
-	public void InserimentoRisultatiEsame(long id/*,elementi per il risultato da creare*/) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
-		Clinica clinica = new Clinica(emf);
-		EsameEffettuato ef = clinica.getEsameEffettuato(id);
-		ef.creaRisultato(clinica/*, elementi del risultato*/);
-		emf.close();
-	}
-
-
 
 	public List<Prerequisito> getTuttiPrerequisiti() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
@@ -139,7 +123,9 @@ public class ClinicaAccessPoint {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica-unit");
 		Clinica clinica = new Clinica(emf);
 		TipoEsame t= clinica.PrendiTipoesame(nometipoesame);
-				emf.close();
+		emf.close();
 		return t;
 	}
+
+
 }

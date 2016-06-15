@@ -12,10 +12,10 @@ public class Paziente {
 	@Id
 	private String codiceFiscale;
 	
-	//@Column(nullable=false)
+	@Column(nullable=false)
 	private String nome; 
 	
-	//@Column(nullable=false)
+	@Column(nullable=false)
 	private String cognome;
 	
 	@Temporal (TemporalType.DATE)
